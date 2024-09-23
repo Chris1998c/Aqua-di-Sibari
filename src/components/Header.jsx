@@ -6,10 +6,7 @@ const Header = () => {
   return (
     <Navbar expand="lg" className="navbar-custom" fixed="top">
       <div className="container">
-        <Navbar.Brand as={Link} to="/" className="navbar-logo">
-          {/* Inserisci qui il tuo logo */}
-          <img src="path/to/logo.png" alt="Logo" width="150" />
-        </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
