@@ -1,0 +1,128 @@
+/* src/index.css */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa; /* Colore di sfondo chiaro */
+  margin: 0;
+  padding: 0;
+}
+
+/* src/styles/Header.css */
+.navbar-custom {
+  background-color: rgba(0, 0, 0, 0.8); /* Navbar traslucida */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+}
+
+.navbar-logo img {
+  width: 150px; /* Dimensione del logo */
+}
+
+.nav-link-custom {
+
+  
+  font-size: 18px;
+  padding: 0 15px;
+  transition: color 0.3s ease;
+}
+.navbar .nav-link {
+  color: white !important;
+}
+
+
+
+.navbar-brand {
+  font-family: 'Lora', serif;
+  color: #f8f9fa;
+}
+
+h1 {
+  color: #343a40; /* Colore del titolo */
+  font-size: 2.5rem; /* Dimensione del titolo */
+}
+
+.card {
+  border: none; 
+  border-radius: 10px; /* Angoli arrotondati */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra della scheda */
+}
+
+.card img {
+  border-top-left-radius: 10px; /* Angoli arrotondati per l'immagine */
+  border-top-right-radius: 10px;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Ingrandisce la scheda al passaggio del mouse */
+  transition: transform 0.2s; /* Transizione morbida */
+}
+
+
+.card-title {
+  font-weight: bold; /* Grassetto per il titolo */
+}
+
+.btn-primary {
+  background-color: #007bff; /* Colore del pulsante */
+  border: none; /* Rimuove il bordo */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Colore del pulsante al passaggio del mouse */
+}
+
+
+
+
+
+/* src/styles/Home.css */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+  color: white;
+}
+
+.hero-section .carousel-item img {
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(0.7); /* Effetto scurente sulle immagini */
+}
+
+.hero-section .carousel-caption {
+  bottom: 40%;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-section .carousel-caption h3 {
+  font-size: 3rem;
+  color: #ffdd57;
+}
+
+.hero-section .carousel-caption p {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Overlay traslucido */
+  z-index: 1;
+}
+
+/* Effetto di fade-in per le caption */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
