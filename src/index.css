@@ -115,6 +115,21 @@ h1 {
   z-index: 1;
 }
 
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 24px;
+  z-index: 1000;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+
 /* Effetto di fade-in per le caption */
 @keyframes fadeInUp {
   0% {
@@ -126,3 +141,10 @@ h1 {
     transform: translateY(0);
   }
 }
+
+@media (max-width: 768px) {
+  .nav-link-custom {
+    font-size: 16px;
+    padding: 0 10px;
+  }
+

@@ -1,21 +1,24 @@
+// src/components/ProductCard.jsx
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 
-
 const ProductCard = ({ product, addToCart }) => {
   return (
-    <div className="card" style={{ width: '18rem' }}>
-      <img src={product.image} className="card-img-top" alt={product.name} />
-      <div className="card-body">
-        <h5 className="card-title">{product.name}</h5>
-        <p className="card-text">€{product.price}</p>
-        <button onClick={() => addToCart(product)} className="btn btn-primary">
+    <Card className="h-100 shadow-sm">
+      <Card.Img variant="top" src={product.image} alt={product.name} />
+      <Card.Body className="d-flex flex-column">
+        <Card.Title>{product.name}</Card.Title>
+        <Card.Text className="flex-grow-1">
+          {product.description}
+          <br />
+          <strong>Prezzo: €{product.price}</strong>
+        </Card.Text>
+        <Button variant="primary" onClick={() => addToCart(product)}>
           Aggiungi al carrello
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Card.Body>
+    </Card>
   );
 };
 
 export default ProductCard;
-

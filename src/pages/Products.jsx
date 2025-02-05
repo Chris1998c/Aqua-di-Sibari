@@ -1,27 +1,29 @@
 // src/pages/Products.jsx
 import React from 'react';
-import ProductCard from '../components/ProductCard';
 import { Container, Row, Col } from 'react-bootstrap';
+import ProductCard from '../components/ProductCard';
 
-const products = [
+// Esempio di prodotti
+const initialProducts = [
   {
     id: 1,
     name: 'Hennè Emolliente',
-    description: 'Un hennè che idrata e nutre i capelli.',
+    description: 'Un hennè studiato per idratare, nutrire e valorizzare i capelli. Formulato con ingredienti 100% calabresi per garantire qualità e tradizione.',
     price: 15.99,
     image: 'https://www.hair-gallery.it/image/cache/data/A_HG045986_2-500x500.jpg',
   },
-  // Aggiungi altri prodotti qui
+  // Aggiungi altri prodotti se necessario
 ];
 
-const Products = () => {
+const Products = ({ addToCart }) => {
   return (
-    <Container>
-      <h1 className="text-center my-4">I Nostri Prodotti</h1>
+    <Container className="my-5">
+      <h1 className="text-center mb-4">I Nostri Prodotti</h1>
       <Row>
-        {products.map(product => (
+        {initialProducts.map(product => (
           <Col md={4} key={product.id} className="mb-4">
-            <ProductCard product={product} />
+            {/* Passa la funzione addToCart a ciascun ProductCard */}
+            <ProductCard product={product} addToCart={addToCart} />
           </Col>
         ))}
       </Row>

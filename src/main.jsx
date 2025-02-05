@@ -1,9 +1,8 @@
 // src/main.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-import { useEffect } from 'react';
 
 function ScrollNavbar() {
   useEffect(() => {
@@ -20,7 +19,7 @@ function ScrollNavbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return null; // Non rende nulla
+  return null;
 }
 
 ReactDOM.render(
