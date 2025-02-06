@@ -49,9 +49,8 @@ export default async function handler(req, res) {
 
     console.log("Line items:", line_items);
 
-    const BASE_URL =
-      process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/$/, "") ||
-      "https://aqua-di-sibari.vercel.app";
+    // 🔥 Risolve il problema di URL con doppio slash "/"
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/$/, "") || "https://aqua-di-sibari.vercel.app";
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
