@@ -43,12 +43,14 @@ export default async function handler(req, res) {
 
     console.log("Line items:", line_items);
 
+    const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://aqua-di-sibari.vercel.app';
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items,
       mode: 'payment',
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://aqua-di-sibari.vercel.app'}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://aqua-di-sibari.vercel.app'}/cancel`,
+      success_url: `${BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${BASE_URL}/cancel`, // 🔥 Evita problemi di doppio slash "/"
     });
 
     console.log("Sessione creata con successo:", session);
