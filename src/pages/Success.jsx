@@ -6,8 +6,8 @@ const Success = () => {
     <Container className="my-5 text-center">
       <h1>Grazie per il tuo acquisto!</h1>
       <p>Il tuo ordine è stato completato con successo.</p>
-      <Link href="/">
-        <Button variant="primary">Torna alla Home</Button>
+      <Link href="/" passHref>
+        <Button as="a" variant="primary">Torna alla Home</Button>
       </Link>
     </Container>
   );
