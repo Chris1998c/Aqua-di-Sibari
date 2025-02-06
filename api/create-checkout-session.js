@@ -1,6 +1,16 @@
 import Stripe from 'stripe';
 
 export default async function handler(req, res) {
+  // ✅ Aggiungere gli header CORS per permettere richieste dal frontend
+  res.setHeader("Access-Control-Allow-Origin", "*"); // Permette richieste da qualsiasi origine
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS"); // Specifica i metodi consentiti
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type"); // Specifica gli headers consentiti
+
+  // ✅ Gestire richieste preflight per CORS
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   try {
     console.log("API Checkout Session: richiesta ricevuta", req.method);
 
@@ -8,11 +18,11 @@ export default async function handler(req, res) {
       return res.status(405).json({ error: 'Metodo non consentito' });
     }
 
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: '2022-11-15' });
-
     if (!process.env.STRIPE_SECRET_KEY) {
       throw new Error("La chiave STRIPE_SECRET_KEY non è stata trovata nell'ambiente.");
     }
+
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: '2022-11-15' });
 
     const { items } = req.body;
     console.log("Elementi ricevuti:", items);
@@ -36,8 +46,8 @@ export default async function handler(req, res) {
       payment_method_types: ['card'],
       line_items,
       mode: 'payment',
-      success_url: `${process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'}/cancel`,
+      success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/cancel`,
     });
 
     console.log("Sessione creata con successo:", session);
