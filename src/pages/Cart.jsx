@@ -15,44 +15,47 @@ const Cart = () => {
 
   const handleCheckout = async () => {
     const stripe = await stripePromise;
-    const items = cartItems.map(item => ({
+    const items = cartItems.map((item) => ({
       name: item.name,
       price: item.price,
       quantity: item.quantity || 1,
     }));
-  
+
     console.log("Inviando i seguenti dati all'API:", items);
-  
+
     try {
-      const response = await fetch('http://localhost:3000/api/create-checkout-session', { 
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const API_URL = process.env.NEXT_PUBLIC_URL || "http://localhost:3000";
+
+      const response = await fetch(`${API_URL}/api/create-checkout-session`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ items }),
       });
-  
+
       console.log("Risposta ricevuta:", response);
-  
+
       if (!response.ok) {
         const errorMessage = await response.text();
         throw new Error(`Errore server: ${errorMessage}`);
       }
-  
+
       const session = await response.json();
       console.log("Session ID ricevuto:", session.id);
-  
+
       if (!session.id) {
-        throw new Error('La sessione non ha un ID.');
+        throw new Error("La sessione non ha un ID.");
       }
-  
-      const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
+
+      const { error } = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
       if (error) {
-        console.error('Errore durante il redirect al checkout:', error.message);
+        console.error("Errore durante il redirect al checkout:", error.message);
       }
     } catch (error) {
-      console.error('Errore durante il parsing della risposta:', error);
+      console.error("Errore durante il parsing della risposta:", error);
     }
   };
-  
 
   return (
     <Container className="my-5">
