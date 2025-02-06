@@ -1,10 +1,11 @@
 import Stripe from 'stripe';
 
 export default async function handler(req, res) {
-  // ✅ Aggiungere gli header CORS per permettere richieste dal frontend
-  res.setHeader("Access-Control-Allow-Origin", "*"); // Permette richieste da qualsiasi origine
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS"); // Specifica i metodi consentiti
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type"); // Specifica gli headers consentiti
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
 
   // ✅ Gestire richieste preflight per CORS
   if (req.method === "OPTIONS") {
