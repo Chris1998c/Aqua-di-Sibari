@@ -24,9 +24,10 @@ const Cart = () => {
     console.log("Inviando i seguenti dati all'API:", items);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_URL || "http://localhost:3000";
+      const API_URL = "https://aqua-di-sibari.vercel.app";
 
-      const response = await fetch(`${API_URL}/api/create-checkout-session`, {
+      const response = await fetch("https://aqua-di-sibari.vercel.app/api/create-checkout-session", {
+
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ items }),
