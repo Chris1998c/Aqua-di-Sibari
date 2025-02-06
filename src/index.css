@@ -1,118 +1,46 @@
 /* src/index.css */
+
+/* Variabili di colore */
+:root {
+  --color-primary: #2e3d34; /* un verde scuro / marrone seppia */
+  --color-secondary: #c2b59b; /* sabbia chiaro */
+  --color-highlight: #d4af37; /* dorato */
+  --color-bg: #f8f9fa; /* sfondo base */
+}
+
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #f8f9fa; /* Colore di sfondo chiaro */
+  background-color: var(--color-bg);
   margin: 0;
   padding: 0;
 }
 
-/* src/styles/Header.css */
-.navbar-custom {
-  background-color: rgba(0, 0, 0, 0.8); /* Navbar traslucida */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
+h1 {
+  color: #343a40;
+  font-size: 2.5rem;
 }
 
-.navbar-logo img {
-  width: 150px; /* Dimensione del logo */
+/* Navbar */
+.navbar-custom {
+  background-color: var(--color-primary) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar-custom.scrolled {
+  padding: 5px 20px; /* riduce se vuoi l'effetto "shrink" */
 }
 
 .nav-link-custom {
-
-  
+  color: var(--color-secondary) !important;
   font-size: 18px;
   padding: 0 15px;
   transition: color 0.3s ease;
 }
-.navbar .nav-link {
-  color: white !important;
-}
 
-
-
-.navbar-brand {
-  font-family: 'Lora', serif;
-  color: #f8f9fa;
-}
-
-h1 {
-  color: #343a40; /* Colore del titolo */
-  font-size: 2.5rem; /* Dimensione del titolo */
-}
-
-.card {
-  border: none; 
-  border-radius: 10px; /* Angoli arrotondati */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra della scheda */
-}
-
-.card img {
-  border-top-left-radius: 10px; /* Angoli arrotondati per l'immagine */
-  border-top-right-radius: 10px;
-}
-
-.card:hover {
-  transform: scale(1.05); /* Ingrandisce la scheda al passaggio del mouse */
-  transition: transform 0.2s; /* Transizione morbida */
-}
-
-
-.card-title {
-  font-weight: bold; /* Grassetto per il titolo */
-}
-
-.btn-primary {
-  background-color: #007bff; /* Colore del pulsante */
-  border: none; /* Rimuove il bordo */
-}
-
-.btn-primary:hover {
-  background-color: #0056b3; /* Colore del pulsante al passaggio del mouse */
-}
-
-
-
-
-
-/* src/styles/Home.css */
-.hero-section {
-  position: relative;
-  height: 100vh;
-  background: linear-gradient(120deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
-  color: white;
-}
-
-.hero-section .carousel-item img {
-  height: 100vh;
-  object-fit: cover;
-  filter: brightness(0.7); /* Effetto scurente sulle immagini */
-}
-
-.hero-section .carousel-caption {
-  bottom: 40%;
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  animation: fadeInUp 1s ease;
-}
-
-.hero-section .carousel-caption h3 {
-  font-size: 3rem;
-  color: #ffdd57;
-}
-
-.hero-section .carousel-caption p {
-  font-size: 1.2rem;
-  font-weight: 300;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Overlay traslucido */
-  z-index: 1;
+.nav-link-custom:hover {
+  color: var(--color-highlight) !important;
 }
 
 .whatsapp-float {
@@ -129,8 +57,64 @@ h1 {
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
+/* Cards */
+.card {
+  border: none; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-/* Effetto di fade-in per le caption */
+.card img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  transition: transform 0.2s;
+}
+
+/* Hero section */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(120deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+  color: white;
+}
+
+.hero-section .carousel-item img {
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.hero-section .carousel-caption {
+  bottom: 40%;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-section .carousel-caption h3 {
+  font-size: 3rem;
+  color: var(--color-highlight);
+}
+
+.hero-section .carousel-caption p {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -147,4 +131,4 @@ h1 {
     font-size: 16px;
     padding: 0 10px;
   }
-
+}

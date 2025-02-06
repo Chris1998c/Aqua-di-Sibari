@@ -1,10 +1,12 @@
 // src/components/Header.jsx
-import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Navbar, Nav, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+import { CartContext } from '../context/CartContext';
 
 const Header = () => {
+  const { cartItems } = useContext(CartContext);
+
   return (
     <>
       <Navbar expand="lg" className="navbar-custom" fixed="top">
@@ -22,7 +24,7 @@ const Header = () => {
                 About
               </Nav.Link>
               <Nav.Link as={Link} to="/cart" className="nav-link-custom">
-                Carrello
+                Carrello <Badge bg="light" text="dark">{cartItems.length}</Badge>
               </Nav.Link>
               <Nav.Link as={Link} to="/contacts" className="nav-link-custom">
                 Contatti
@@ -31,6 +33,7 @@ const Header = () => {
           </Navbar.Collapse>
         </div>
       </Navbar>
+
       {/* Pulsante WhatsApp fisso in basso a destra */}
       <a
         href="https://wa.me/+393895817411"

@@ -4,8 +4,7 @@ import { Carousel, Container, Button, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import img1 from '../assets/ciao.jpg'; 
 import img2 from '../assets/img2.jpg';
-import img3 from '../assets/ciao.jpg'; // Seleziona immagini differenti se possibile
-
+import img3 from '../assets/ciao.jpg';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -18,13 +17,13 @@ const Home = () => {
     <>
       <div className="hero-section">
         <div className="overlay"></div>
-        <Carousel interval={4000} controls={false} indicators={false} fade>
+        <Carousel interval={3000} controls={true} indicators={true} fade>
           <Carousel.Item>
             <img className="d-block w-100" src={img1} alt="Primo slide" />
             <Carousel.Caption className="caption">
               <h3>L’Emolliente Naturale per il Tuo Henné</h3>
               <p>Stessa Qualità, Prezzo Migliore</p>
-              <Button variant="primary" onClick={handleCTAClick}>
+              <Button variant="light" onClick={handleCTAClick}>
                 Acquista Ora
               </Button>
             </Carousel.Caption>
@@ -34,7 +33,7 @@ const Home = () => {
             <Carousel.Caption className="caption">
               <h3>Ingredienti 100% Calabresi</h3>
               <p>Qualità superiore e tradizione antica</p>
-              <Button variant="primary" onClick={handleCTAClick}>
+              <Button variant="light" onClick={handleCTAClick}>
                 Scopri di più
               </Button>
             </Carousel.Caption>
@@ -44,13 +43,14 @@ const Home = () => {
             <Carousel.Caption className="caption">
               <h3>Una Bellezza Naturale</h3>
               <p>Per chi sceglie il meglio</p>
-              <Button variant="primary" onClick={handleCTAClick}>
+              <Button variant="light" onClick={handleCTAClick}>
                 Acquista Ora
               </Button>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
       </div>
+
       <Container className="my-5">
         <Row className="text-center">
           <Col md={4}>

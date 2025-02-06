@@ -1,18 +1,23 @@
-// /api/create-checkout-session.js
-
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: '2022-11-15' });
-
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
-    return res.status(405).json({ error: 'Metodo non consentito' });
-  }
-
   try {
+    console.log("API Checkout Session: richiesta ricevuta", req.method);
+
+    if (req.method !== 'POST') {
+      return res.status(405).json({ error: 'Metodo non consentito' });
+    }
+
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: '2022-11-15' });
+
+    if (!process.env.STRIPE_SECRET_KEY) {
+      throw new Error("La chiave STRIPE_SECRET_KEY non è stata trovata nell'ambiente.");
+    }
+
     const { items } = req.body;
-    if (!items) {
+    console.log("Elementi ricevuti:", items);
+
+    if (!items || items.length === 0) {
       return res.status(400).json({ error: 'Nessun prodotto fornito' });
     }
 
@@ -25,6 +30,8 @@ export default async function handler(req, res) {
       quantity: item.quantity || 1,
     }));
 
+    console.log("Line items:", line_items);
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items,
@@ -33,9 +40,11 @@ export default async function handler(req, res) {
       cancel_url: `${process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'}/cancel`,
     });
 
+    console.log("Sessione creata con successo:", session);
+
     return res.status(200).json({ id: session.id });
   } catch (error) {
-    console.error('Errore nella creazione della sessione:', error);
+    console.error('Errore nella creazione della sessione:', error.message);
     return res.status(500).json({ error: error.message });
   }
 }

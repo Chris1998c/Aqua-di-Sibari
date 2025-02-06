@@ -1,9 +1,12 @@
 // src/pages/Cart.jsx
-import React from 'react';
-import { Container, ListGroup, Button } from 'react-bootstrap';
-import { stripePromise } from '../stripe';
+import React, { useContext } from "react";
+import { Container, ListGroup, Button } from "react-bootstrap";
+import { CartContext } from "../context/CartContext";
+import { stripePromise } from "../stripe";
 
-const Cart = ({ cartItems }) => {
+const Cart = () => {
+  const { cartItems, removeFromCart } = useContext(CartContext);
+
   const calculateTotal = () => {
     return cartItems
       .reduce((acc, item) => acc + item.price * (item.quantity || 1), 0)
@@ -12,37 +15,44 @@ const Cart = ({ cartItems }) => {
 
   const handleCheckout = async () => {
     const stripe = await stripePromise;
-
-    // Prepara i dati dei prodotti nel carrello
     const items = cartItems.map(item => ({
       name: item.name,
       price: item.price,
       quantity: item.quantity || 1,
     }));
-
-    // Invia la richiesta POST al backend per creare la sessione di checkout
-    const response = await fetch('/api/create-checkout-session', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ items }),
-    });
-    
-    const session = await response.json();
-
-    // Verifica che la sessione abbia un id e reindirizza a Stripe
-    if (!session.id) {
-      console.error('Errore: session.id non è definito', session);
-      return;
-    }
-
-    const { error } = await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
-
-    if (error) {
-      console.error('Errore durante il redirect al checkout:', error.message);
+  
+    console.log("Inviando i seguenti dati all'API:", items);
+  
+    try {
+      const response = await fetch('http://localhost:3000/api/create-checkout-session', { 
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items }),
+      });
+  
+      console.log("Risposta ricevuta:", response);
+  
+      if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(`Errore server: ${errorMessage}`);
+      }
+  
+      const session = await response.json();
+      console.log("Session ID ricevuto:", session.id);
+  
+      if (!session.id) {
+        throw new Error('La sessione non ha un ID.');
+      }
+  
+      const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
+      if (error) {
+        console.error('Errore durante il redirect al checkout:', error.message);
+      }
+    } catch (error) {
+      console.error('Errore durante il parsing della risposta:', error);
     }
   };
+  
 
   return (
     <Container className="my-5">
@@ -51,12 +61,25 @@ const Cart = ({ cartItems }) => {
         <>
           <ListGroup variant="flush" className="mb-3">
             {cartItems.map((item, index) => (
-              <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center">
+              <ListGroup.Item
+                key={index}
+                className="d-flex justify-content-between align-items-center"
+              >
                 <div>
                   {item.name} <br />
                   <small>Quantità: {item.quantity || 1}</small>
                 </div>
-                <div>€{(item.price * (item.quantity || 1)).toFixed(2)}</div>
+                <div>
+                  €{(item.price * (item.quantity || 1)).toFixed(2)}
+                  <Button
+                    variant="outline-danger"
+                    size="sm"
+                    onClick={() => removeFromCart(item.id)}
+                    style={{ marginLeft: "10px" }}
+                  >
+                    Rimuovi
+                  </Button>
+                </div>
               </ListGroup.Item>
             ))}
           </ListGroup>

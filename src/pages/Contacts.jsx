@@ -15,7 +15,7 @@ const Contacts = () => {
             <strong>Telefono:</strong> (+39)3895817411
           </p>
         </Col>
-        <Col md={6}>
+        <Col md={6} className="text-center">
           <Button
             variant="success"
             href="https://wa.me/+393895817411"

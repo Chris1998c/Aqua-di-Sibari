@@ -1,8 +1,10 @@
-// src/main.js
+// src/main.jsx
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import './index.css';
+import './index.css'; // CSS globale
+import 'bootstrap/dist/css/bootstrap.min.css'; // bootstrap
+import { CartProvider } from './context/CartContext';
 
 function ScrollNavbar() {
   useEffect(() => {
@@ -23,9 +25,11 @@ function ScrollNavbar() {
 }
 
 ReactDOM.render(
-  <>
-    <ScrollNavbar />
-    <App />
-  </>,
+  <React.StrictMode>
+    <CartProvider>
+      <ScrollNavbar />
+      <App />
+    </CartProvider>
+  </React.StrictMode>,
   document.getElementById('root')
 );
