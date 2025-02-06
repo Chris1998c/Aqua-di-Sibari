@@ -47,8 +47,8 @@ export default async function handler(req, res) {
       payment_method_types: ['card'],
       line_items,
       mode: 'payment',
-      success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://aqua-di-sibari.vercel.app/'}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://aqua-di-sibari.vercel.app/'}/cancel`,
+      success_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://aqua-di-sibari.vercel.app'}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL || 'https://aqua-di-sibari.vercel.app'}/cancel`,
     });
 
     console.log("Sessione creata con successo:", session);
