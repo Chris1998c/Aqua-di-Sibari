@@ -13,6 +13,13 @@ const initialProducts = [
     price: 15.99,
     image: 'https://www.hair-gallery.it/image/cache/data/A_HG045986_2-500x500.jpg',
   },
+  {
+    id: 2,
+    name: 'Hennè Rosso',
+    description: 'Hennè studiato per idratare e nutrire i capelli, con ingredienti 100% calabresi.',
+    price: 30.99,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWlG_C68bWoQAAdrzyFkvNZ9_KNSVCDLvECCTFlkHhjLKd1hFeNowIYEs_HHy1vlDHQ2U&usqp=CAU',
+  },
 ];
 
 const Products = () => {
