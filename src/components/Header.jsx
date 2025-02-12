@@ -1,49 +1,25 @@
 // src/components/Header.jsx
-import React, { useContext } from 'react';
-import { Navbar, Nav, Badge } from 'react-bootstrap';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../context/CartContext';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
 const Header = () => {
-  const { cartItems } = useContext(CartContext);
-
   return (
-    <>
-      <Navbar expand="lg" className="navbar-custom" fixed="top">
-        <div className="container">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
-              <Nav.Link as={Link} to="/" className="nav-link-custom">
-                Home
-              </Nav.Link>
-              <Nav.Link as={Link} to="/products" className="nav-link-custom">
-                Prodotti
-              </Nav.Link>
-              <Nav.Link as={Link} to="/about" className="nav-link-custom">
-                About
-              </Nav.Link>
-              <Nav.Link as={Link} to="/cart" className="nav-link-custom">
-                Carrello <Badge bg="light" text="dark">{cartItems.length}</Badge>
-              </Nav.Link>
-              <Nav.Link as={Link} to="/contacts" className="nav-link-custom">
-                Contatti
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </div>
-      </Navbar>
-
-      {/* Pulsante WhatsApp fisso in basso a destra */}
-      <a
-        href="https://wa.me/+393895817411"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-float"
-      >
-        💬
-      </a>
-    </>
+    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
+      <Container>
+        <Navbar.Brand as={Link} to="/">AQUA di SIBARI</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/products">Prodotti</Nav.Link>
+            <Nav.Link as={Link} to="/cart">Carrello</Nav.Link>
+            <Nav.Link as={Link} to="/about">Chi Siamo</Nav.Link>
+            <Nav.Link as={Link} to="/contacts">Contatti</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

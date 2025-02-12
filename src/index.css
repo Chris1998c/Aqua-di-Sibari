@@ -1,134 +1,167 @@
-/* src/index.css */
+/* index.css */
 
-/* Variabili di colore */
+/* --- Variabili di Stile --- */
 :root {
-  --color-primary: #2e3d34; /* un verde scuro / marrone seppia */
-  --color-secondary: #c2b59b; /* sabbia chiaro */
-  --color-highlight: #d4af37; /* dorato */
-  --color-bg: #f8f9fa; /* sfondo base */
+  --color-primary: #2c3e50;       /* Tonalità scura, elegante e naturale */
+  --color-secondary: #27ae60;     /* Verde naturale */
+  --color-accent: #f39c12;        /* Accento dorato */
+  --color-background: #ecf0f1;    /* Sfondo base chiaro */
+  --color-text: #34495e;          /* Testo in grigio scuro */
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Playfair Display', serif;
+}
+
+/* --- Reset & Stili Globali --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: var(--color-bg);
-  margin: 0;
-  padding: 0;
+  font-family: var(--font-primary);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  /* Sfondo con immagine: utilizza l'immagine "ciao.jpg" presente in assets */
+  background-image: url('/assets/ciao.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+  padding-top: 70px; /* per compensare il navbar fisso */
 }
 
-h1 {
-  color: #343a40;
-  font-size: 2.5rem;
-}
-
-/* Navbar */
-.navbar-custom {
-  background-color: var(--color-primary) !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
-  transition: all 0.3s ease;
-}
-
-.navbar-custom.scrolled {
-  padding: 5px 20px; /* riduce se vuoi l'effetto "shrink" */
-}
-
-.nav-link-custom {
-  color: var(--color-secondary) !important;
-  font-size: 18px;
-  padding: 0 15px;
+/* --- Link --- */
+a {
+  color: var(--color-secondary);
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.nav-link-custom:hover {
-  color: var(--color-highlight) !important;
+a:hover {
+  color: var(--color-accent);
 }
 
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25d366;
-  color: white;
-  border-radius: 50%;
-  padding: 15px;
-  font-size: 24px;
-  z-index: 1000;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+/* --- Header & Navbar --- */
+.navbar {
+  padding: 1rem 2rem;
+}
+.navbar-brand {
+  font-family: var(--font-secondary);
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+.nav-link {
+  font-size: 1rem;
+  margin-right: 1rem;
 }
 
-/* Cards */
-.card {
-  border: none; 
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card img {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.card:hover {
-  transform: scale(1.03);
-  transition: transform 0.2s;
-}
-
-/* Hero section */
-.hero-section {
-  position: relative;
-  height: 100vh;
-  background: linear-gradient(120deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
-  color: white;
-}
-
-.hero-section .carousel-item img {
-  height: 100vh;
+/* --- Carousel --- */
+.carousel-item img {
+  height: 80vh;
   object-fit: cover;
-  filter: brightness(0.7);
+}
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 8px;
 }
 
-.hero-section .carousel-caption {
-  bottom: 40%;
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  animation: fadeInUp 1s ease;
+/* --- Cards dei Prodotti --- */
+.card {
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.card-title {
+  font-family: var(--font-secondary);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
 }
 
-.hero-section .carousel-caption h3 {
-  font-size: 3rem;
-  color: var(--color-highlight);
+/* --- Bottoni --- */
+.btn-primary {
+  background-color: var(--color-secondary);
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: var(--color-accent);
 }
 
-.hero-section .carousel-caption p {
-  font-size: 1.2rem;
-  font-weight: 300;
+.btn-secondary {
+  background-color: var(--color-primary);
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.btn-secondary:hover {
+  background-color: var(--color-accent);
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
+.btn-success {
+  background-color: var(--color-accent);
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.btn-success:hover {
+  background-color: var(--color-secondary);
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* --- Utility Classes --- */
+.mt-5 {
+  margin-top: 3rem !important;
+}
+.pt-5 {
+  padding-top: 3rem !important;
+}
+.text-center {
+  text-align: center !important;
 }
 
+/* --- Footer --- */
+.footer {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
+
+/* --- Icone --- */
+.icon {
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  margin-right: 0.5rem;
+  transition: color 0.3s ease;
+}
+.icon:hover {
+  color: var(--color-accent);
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
-  .nav-link-custom {
-    font-size: 16px;
-    padding: 0 10px;
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+  .carousel-caption {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+  .card-title {
+    font-size: 1.2rem;
+  }
+  .nav-link {
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
   }
 }

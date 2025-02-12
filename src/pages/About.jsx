@@ -1,30 +1,15 @@
 // src/pages/About.jsx
 import React from 'react';
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 const About = () => {
   return (
-    <Container className="my-5">
-      <h1 className="mb-4">Chi Siamo</h1>
-      <Row>
-        <Col md={6}>
-          <p>
-            <strong>Aqua di Sibari</strong> è il legame tra storia, natura e bellezza.
-            Nata dall'anima della Magna Grecia e dalla biodiversità della terra di Calabria, 
-            Aqua di Sibari è molto più di un marchio...
-          </p>
-          <p>
-            Ispirati dalla ricchezza della storia di Sibari e dalla biodiversità calabrese, 
-            selezioniamo ingredienti di altissima qualità...
-          </p>
-          <p>
-            Con Aqua di Sibari, porti a casa un pezzo di storia e natura...
-          </p>
-        </Col>
-        <Col md={6}>
-          <Image src="/assets/about-image.jpg" alt="Produzione Aqua di Sibari" fluid rounded />
-        </Col>
-      </Row>
+    <Container className="mt-5 pt-5">
+      <h1>Chi Siamo</h1>
+      <p>
+        AQUA di SIBARI unisce la storia millenaria della Magna Grecia con la biodiversità calabrese. 
+        I nostri prodotti cosmetici sono realizzati con ingredienti naturali selezionati per garantire bellezza e benessere.
+      </p>
     </Container>
   );
 };

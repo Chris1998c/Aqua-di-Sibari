@@ -1,95 +1,72 @@
 // src/pages/Cart.jsx
-import React, { useContext } from "react";
-import { Container, ListGroup, Button } from "react-bootstrap";
-import { CartContext } from "../context/CartContext";
-import { stripePromise } from "../stripe";
+import React, { useContext } from 'react';
+import { Container, ListGroup, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
+import { stripePromise } from '../stripe';
 
 const Cart = () => {
   const { cartItems, removeFromCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const calculateTotal = () => {
-    return cartItems
-      .reduce((acc, item) => acc + item.price * (item.quantity || 1), 0)
-      .toFixed(2);
+    return cartItems.reduce((acc, item) => acc + item.price * (item.quantity || 1), 0).toFixed(2);
   };
 
   const handleCheckout = async () => {
-    const stripe = await stripePromise;
-    const items = cartItems.map((item) => ({
+    // Prepara i dati per Stripe
+    const items = cartItems.map(item => ({
       name: item.name,
       price: item.price,
-      quantity: item.quantity || 1,
+      quantity: item.quantity || 1
     }));
 
-    console.log("Inviando i seguenti dati all'API:", items);
-
     try {
-      const API_URL = "https://aqua-di-sibari.vercel.app";
-
-      const response = await fetch("https://aqua-di-sibari.vercel.app/api/create-checkout-session", {
-
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items }),
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items })
       });
 
-      console.log("Risposta ricevuta:", response);
-
       if (!response.ok) {
-        const errorMessage = await response.text();
-        throw new Error(`Errore server: ${errorMessage}`);
+        throw new Error('Errore nel creare la sessione di checkout');
       }
 
       const session = await response.json();
-      console.log("Session ID ricevuto:", session.id);
-
-      if (!session.id) {
-        throw new Error("La sessione non ha un ID.");
-      }
-
-      const { error } = await stripe.redirectToCheckout({
-        sessionId: session.id,
-      });
+      const stripe = await stripePromise;
+      const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
       if (error) {
-        console.error("Errore durante il redirect al checkout:", error.message);
+        console.error("Stripe error:", error.message);
       }
     } catch (error) {
-      console.error("Errore durante il parsing della risposta:", error);
+      console.error("Checkout error:", error);
     }
   };
 
   return (
-    <Container className="my-5">
-      <h2>Carrello</h2>
+    <Container className="mt-5 pt-5">
+      <h1>Carrello</h1>
       {cartItems.length > 0 ? (
         <>
-          <ListGroup variant="flush" className="mb-3">
-            {cartItems.map((item, index) => (
-              <ListGroup.Item
-                key={index}
-                className="d-flex justify-content-between align-items-center"
-              >
+          <ListGroup variant="flush">
+            {cartItems.map(item => (
+              <ListGroup.Item key={item.id} className="d-flex justify-content-between align-items-center">
                 <div>
                   {item.name} <br />
-                  <small>Quantità: {item.quantity || 1}</small>
+                  <small>Quantità: {item.quantity}</small>
                 </div>
                 <div>
-                  €{(item.price * (item.quantity || 1)).toFixed(2)}
-                  <Button
-                    variant="outline-danger"
-                    size="sm"
-                    onClick={() => removeFromCart(item.id)}
-                    style={{ marginLeft: "10px" }}
-                  >
+                  €{(item.price * item.quantity).toFixed(2)}
+                  <Button variant="outline-danger" size="sm" onClick={() => removeFromCart(item.id)} className="ms-2">
                     Rimuovi
                   </Button>
                 </div>
               </ListGroup.Item>
             ))}
           </ListGroup>
-          <h4>Totale: €{calculateTotal()}</h4>
+          <h3 className="mt-3">Totale: €{calculateTotal()}</h3>
           <Button variant="success" onClick={handleCheckout} className="mt-3">
-            Procedi al pagamento
+            Procedi al Pagamento
           </Button>
         </>
       ) : (
