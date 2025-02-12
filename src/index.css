@@ -26,7 +26,7 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   /* Sfondo con immagine: utilizza l'immagine "ciao.jpg" presente in assets */
-  background-image: url('/assets/ciao.jpg');
+  background-image: url('/ciao.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   overflow-x: hidden;
