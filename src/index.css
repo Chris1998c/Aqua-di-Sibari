@@ -25,7 +25,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   line-height: 1.6;
-  background-image: url('/ciao.jpg');
+
   background-repeat: no-repeat;
   background-size: cover;
   overflow-x: hidden;
