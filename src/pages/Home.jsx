@@ -1,6 +1,6 @@
 // src/pages/Home.jsx
 import React from 'react';
-import { Container, Carousel, Button } from 'react-bootstrap';
+import { Carousel, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
@@ -37,12 +37,6 @@ const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Container className="mt-5">
-        <h1>La nostra filosofia</h1>
-        <p>
-          Un connubio di natura, storia e bellezza per valorizzare la tua immagine.
-        </p>
-      </Container>
     </div>
   );
 };
