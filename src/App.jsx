@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Componenti comuni
+// Componenti
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -18,10 +18,12 @@ import Cancel from './pages/Cancel';
 const App = () => {
   return (
     <Router>
-      {/* App Container: gestisce il layout a colonna */}
+      {/* Contenitore principale a colonna */}
       <div className="app-container">
+        {/* Navbar fissa in alto, rimane fuori dal flow */}
         <Header />
-        {/* Area contenuto principale, si espande per tenere il footer in basso */}
+        
+        {/* Contenuto centrale, flessibile (resta dietro la navbar se non compensiamo) */}
         <div className="content">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -33,6 +35,8 @@ const App = () => {
             <Route path="/cancel" element={<Cancel />} />
           </Routes>
         </div>
+
+        {/* Footer in fondo alla pagina, anche se il contenuto è poco */}
         <Footer />
       </div>
     </Router>

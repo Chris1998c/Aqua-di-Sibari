@@ -11,11 +11,11 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="home-carousel-wrapper">
       <Carousel interval={3000}>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="d-block w-100 carousel-image"
             src="/ciao.jpg"
             alt="Slide 1"
           />
@@ -27,7 +27,7 @@ const Home = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="d-block w-100 carousel-image"
             src="/img2.jpg"
             alt="Slide 2"
           />

@@ -1,17 +1,17 @@
 /* index.css */
 
-/* --- Variabili di Stile --- */
+/* -- Variabili -- */
 :root {
-  --color-primary: #2c3e50;       /* Scuro, elegante */
-  --color-secondary: #27ae60;     /* Verde naturale */
-  --color-accent: #f39c12;        /* Accento dorato */
-  --color-background: #ecf0f1;    /* Chiaro */
-  --color-text: #34495e;          /* Grigio scuro */
+  --color-primary: #2c3e50;    /* Scuro, elegante */
+  --color-secondary: #27ae60;  /* Verde naturale */
+  --color-accent: #f39c12;     /* Accento dorato */
+  --color-background: #ecf0f1; /* Chiaro */
+  --color-text: #34495e;       /* Grigio scuro */
   --font-primary: 'Roboto', sans-serif;
   --font-secondary: 'Playfair Display', serif;
 }
 
-/* --- Reset & Stili Globali --- */
+/* -- Reset e layout globali -- */
 *,
 *::before,
 *::after {
@@ -20,26 +20,28 @@
   box-sizing: border-box;
 }
 
-/* Layout Principale */
 html, body {
   height: 100%;
   background-color: var(--color-background);
   color: var(--color-text);
   font-family: var(--font-primary);
 }
+
 #root {
   height: 100%;
 }
+
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Permette al footer di stare in fondo */
+  min-height: 100vh; /* Layout a colonna a tutta altezza */
 }
+
 .content {
+  /* Occupare lo spazio rimanente */
   flex: 1;
-  /* Se vuoi creare uno spazio sotto la navbar fissa, puoi aggiungere un margin-top: 70px; */
-  margin-top: 70px;
-  /* Se ti sembra troppo, riducilo. Oppure se la navbar fissa è bassa, puoi impostare margin-top: 60px. */
+  /* Spazio per la navbar fissa (circa 60px di altezza) */
+  padding-top: 60px;
 }
 
 /* Link */
@@ -52,20 +54,23 @@ a:hover {
   color: var(--color-accent);
 }
 
-/* --- Header & Navbar --- */
+/* -- Navbar -- */
 .header-navbar {
   padding: 0.3rem 1rem; /* Navbar più compatta */
 }
+
 .header-navbar .navbar-brand img {
-  height: 50px; /* Logo più piccolo */
+  height: 50px; 
   margin-right: 0.5rem;
 }
+
 .header-navbar .navbar-brand {
   font-family: var(--font-secondary);
-  font-size: 1.1rem; /* Testo brand leggermente più piccolo */
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
 }
+
 .header-navbar .nav-link {
   font-size: 0.9rem;
   margin-right: 0.5rem;
@@ -82,18 +87,26 @@ a:hover {
   vertical-align: middle;
 }
 
-/* --- Carousel --- */
-.carousel-item img {
-  height: 70vh;
-  object-fit: cover;
+/* -- Carousel -- */
+.home-carousel-wrapper {
+  width: 100%;
+  height: 100%;
 }
+
+.carousel-item img.carousel-image {
+  height: 80vh;               /* Altezza, riduci o aumenta a piacere */
+  width: 100%;
+  object-fit: cover;          /* L'immagine riempie lo spazio in modo “tagliato” */
+  object-position: center;    /* Centra l'area di focus */
+}
+
 .carousel-caption {
   background: rgba(0, 0, 0, 0.55);
   padding: 0.8rem 1.5rem;
   border-radius: 8px;
 }
 
-/* Cards */
+/* -- Cards -- */
 .card {
   border: none;
   border-radius: 12px;
@@ -109,7 +122,7 @@ a:hover {
   margin-bottom: 0.5rem;
 }
 
-/* Bottoni */
+/* -- Bottoni -- */
 .btn-primary {
   background-color: var(--color-secondary);
   border: none;
@@ -135,17 +148,18 @@ a:hover {
   background-color: var(--color-secondary);
 }
 
-/* Footer */
+/* -- Footer -- */
 .footer {
   background-color: var(--color-primary);
   color: #fff;
-  padding: 1rem 0;
   text-align: center;
   font-size: 0.9rem;
-  /* A fine colonna */
+  padding: 1rem 0;
+  /* Il footer compare in fondo alla colonna */
+  margin-top: auto;
 }
 
-/* Icone */
+/* -- Icone -- */
 .icon {
   font-size: 1.3rem;
   color: var(--color-secondary);
@@ -156,7 +170,7 @@ a:hover {
   color: var(--color-accent);
 }
 
-/* Responsive */
+/* -- Responsive -- */
 @media (max-width: 768px) {
   .header-navbar {
     padding: 0.3rem 0.5rem;
@@ -167,15 +181,17 @@ a:hover {
   .header-navbar .navbar-brand {
     font-size: 1rem;
   }
+  .header-navbar .nav-link {
+    font-size: 0.85rem;
+  }
   .carousel-caption {
     font-size: 0.8rem;
     padding: 0.5rem 1rem;
   }
+  .carousel-item img.carousel-image {
+    height: 60vh; /* Altezza inferiore sugli schermi stretti */
+  }
   .card-title {
     font-size: 1.1rem;
-  }
-  .nav-link {
-    font-size: 0.85rem;
-    margin-right: 0.5rem;
   }
 }
