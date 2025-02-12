@@ -95,7 +95,7 @@ a:hover {
 
 .carousel-item img.carousel-image {
   width: 100%;
-  height: auto;
+  height: 60vh;
   object-fit: cover;
   object-position: center;
 }
