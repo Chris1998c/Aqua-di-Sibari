@@ -20,50 +20,58 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: var(--font-primary);
+/* Layout Principale */
+html, body {
+  height: 100%;
   background-color: var(--color-background);
   color: var(--color-text);
-  line-height: 1.6;
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow-x: hidden;
-  padding-top: 70px; /* Spazio per navbar fissa */
+  font-family: var(--font-primary);
+}
+#root {
+  height: 100%;
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Permette al footer di stare in fondo */
+}
+.content {
+  flex: 1;
+  /* Se vuoi creare uno spazio sotto la navbar fissa, puoi aggiungere un margin-top: 70px; */
+  margin-top: 70px;
+  /* Se ti sembra troppo, riducilo. Oppure se la navbar fissa è bassa, puoi impostare margin-top: 60px. */
 }
 
-/* --- Link --- */
+/* Link */
 a {
   color: var(--color-secondary);
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
 a:hover {
   color: var(--color-accent);
 }
 
 /* --- Header & Navbar --- */
-.navbar {
-  padding: 0.5rem 1rem; /* Ridotto per contenere l'altezza */
+.header-navbar {
+  padding: 0.3rem 1rem; /* Navbar più compatta */
 }
-.navbar-brand {
+.header-navbar .navbar-brand img {
+  height: 50px; /* Logo più piccolo */
+  margin-right: 0.5rem;
+}
+.header-navbar .navbar-brand {
   font-family: var(--font-secondary);
-  font-size: 1.4rem; /* Testo leggermente più piccolo */
-  letter-spacing: 1px;
+  font-size: 1.1rem; /* Testo brand leggermente più piccolo */
   display: flex;
   align-items: center;
 }
-.navbar-brand img {
-  height: 80px; /* Logo leggermente più piccolo */
+.header-navbar .nav-link {
+  font-size: 0.9rem;
   margin-right: 0.5rem;
 }
-.nav-link {
-  font-size: 0.95rem;
-  margin-right: 1rem;
-}
 
-/* Badge per il carrello */
+/* Badge Carrello */
 .cart-badge {
   background-color: var(--color-accent);
   border-radius: 50%;
@@ -71,21 +79,21 @@ a:hover {
   padding: 2px 6px;
   font-size: 0.8rem;
   margin-left: 0.3rem;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 /* --- Carousel --- */
 .carousel-item img {
-  height: 70vh; /* Altezza leggermente ridotta per evitare che occupi troppo spazio */
+  height: 70vh;
   object-fit: cover;
 }
 .carousel-caption {
-  background: rgba(0, 0, 0, 0.55);  /* Overlay per migliorare la leggibilità */
+  background: rgba(0, 0, 0, 0.55);
   padding: 0.8rem 1.5rem;
   border-radius: 8px;
 }
 
-/* --- Cards dei Prodotti --- */
+/* Cards */
 .card {
   border: none;
   border-radius: 12px;
@@ -101,7 +109,7 @@ a:hover {
   margin-bottom: 0.5rem;
 }
 
-/* --- Bottoni --- */
+/* Bottoni */
 .btn-primary {
   background-color: var(--color-secondary);
   border: none;
@@ -110,7 +118,6 @@ a:hover {
 .btn-primary:hover {
   background-color: var(--color-accent);
 }
-
 .btn-secondary {
   background-color: var(--color-primary);
   border: none;
@@ -119,7 +126,6 @@ a:hover {
 .btn-secondary:hover {
   background-color: var(--color-accent);
 }
-
 .btn-success {
   background-color: var(--color-accent);
   border: none;
@@ -129,30 +135,19 @@ a:hover {
   background-color: var(--color-secondary);
 }
 
-/* --- Utility Classes --- */
-.mt-5 {
-  margin-top: 3rem !important;
-}
-.pt-5 {
-  padding-top: 3rem !important;
-}
-.text-center {
-  text-align: center !important;
-}
-
-/* --- Footer --- */
+/* Footer */
 .footer {
   background-color: var(--color-primary);
   color: #fff;
-  padding: 1.5rem 0; /* Padding ridotto */
+  padding: 1rem 0;
   text-align: center;
   font-size: 0.9rem;
-  margin-top: 2rem;
+  /* A fine colonna */
 }
 
-/* --- Icone --- */
+/* Icone */
 .icon {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: var(--color-secondary);
   margin-right: 0.5rem;
   transition: color 0.3s ease;
@@ -161,16 +156,16 @@ a:hover {
   color: var(--color-accent);
 }
 
-/* --- Responsive --- */
+/* Responsive */
 @media (max-width: 768px) {
-  .navbar {
-    padding: 0.5rem 0.5rem;
+  .header-navbar {
+    padding: 0.3rem 0.5rem;
   }
-  .navbar-brand {
-    font-size: 1.3rem;
+  .header-navbar .navbar-brand img {
+    height: 40px;
   }
-  .navbar-brand img {
-    height: 70px;
+  .header-navbar .navbar-brand {
+    font-size: 1rem;
   }
   .carousel-caption {
     font-size: 0.8rem;
