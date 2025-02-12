@@ -16,7 +16,7 @@ const Home = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/assets/slide1.jpg"  // Assicurati di avere le immagini in public/assets/
+            src="/img2.jpg"  
             alt="Slide 1"
           />
           <Carousel.Caption>

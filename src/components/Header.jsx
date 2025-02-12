@@ -14,9 +14,9 @@ const Header = () => {
           <img 
             src="/Aqua_di_Sibari__LogoHD.png" 
             alt="Logo AQUA di SIBARI" 
-            style={{ height: '40px', marginRight: '0.5rem' }}
+            style={{ height: '85px', marginRight: '0.5rem' }}
           />
-          AQUA di SIBARI
+          
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
