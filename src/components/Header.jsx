@@ -10,14 +10,13 @@ const Header = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
       <Container>
-        <Navbar.Brand as={Link} to="/">
-          {/* Logo in evidenza: aumenta l'altezza se serve, e riduci la dimensione del testo */}
+        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <img 
             src="/Aqua_di_Sibari__LogoHD.png" 
             alt="Logo AQUA di SIBARI" 
-            style={{ height: '100px', marginRight: '0.5rem' }} 
+            style={{ height: '80px', marginRight: '0.5rem' }} 
           />
-          <span style={{ fontSize: '1.4rem' }}>AQUA di SIBARI</span>
+          <span style={{ fontSize: '1.3rem' }}>AQUA di SIBARI</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -25,8 +24,7 @@ const Header = () => {
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/products">Prodotti</Nav.Link>
             <Nav.Link as={Link} to="/cart">
-              <i className="fa fa-shopping-cart icon"></i>
-              Carrello
+              <i className="fa fa-shopping-cart icon"></i> Carrello
               {cartItems.length > 0 && (
                 <span className="cart-badge">{cartItems.length}</span>
               )}
