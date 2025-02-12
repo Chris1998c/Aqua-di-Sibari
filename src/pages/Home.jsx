@@ -16,8 +16,13 @@ const Home = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/img2.jpg"  
+            src="/img2.jpg"
             alt="Slide 1"
+          />
+            <img
+            className="d-block w-100"
+            src="/ciao.jpg"
+            alt="Slide 2"
           />
           <Carousel.Caption>
             <h3>Benvenuto in AQUA di SIBARI</h3>
