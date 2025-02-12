@@ -14,11 +14,6 @@ const Home = () => {
     <div>
       <Carousel interval={3000}>
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="/img2.jpg"
-            alt="Slide 1"
-          />
             <img
             className="d-block w-100"
             src="/ciao.jpg"
@@ -30,16 +25,15 @@ const Home = () => {
             <Button variant="light" onClick={handleCTAClick}>Acquista Ora</Button>
           </Carousel.Caption>
         </Carousel.Item>
-        {/*
-          Per aggiungere altre slide, usa questo formato:
+        {
           <Carousel.Item>
-            <img className="d-block w-100" src="/another-image.jpg" alt="Slide 2" />
+            <img className="d-block w-100" src="/img2.jpg" alt="Slide 2" />
             <Carousel.Caption>
-              <h3>Titolo Slide 2</h3>
-              <p>Descrizione Slide 2</p>
+              <h3>AQUA di SIBARI</h3>
+              <p>Ciao</p>
             </Carousel.Caption>
           </Carousel.Item>
-        */}
+        }
       </Carousel>
       <Container className="mt-5">
         <h1>La nostra filosofia</h1>
