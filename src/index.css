@@ -94,11 +94,12 @@ a:hover {
 }
 
 .carousel-item img.carousel-image {
-  height: 80vh;               /* Altezza, riduci o aumenta a piacere */
   width: 100%;
-  object-fit: cover;          /* L'immagine riempie lo spazio in modo “tagliato” */
-  object-position: center;    /* Centra l'area di focus */
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
+
 
 .carousel-caption {
   background: rgba(0, 0, 0, 0.55);
