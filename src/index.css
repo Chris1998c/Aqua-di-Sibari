@@ -2,11 +2,11 @@
 
 /* --- Variabili di Stile --- */
 :root {
-  --color-primary: #2c3e50;       /* Tonalità scura, elegante e naturale */
+  --color-primary: #2c3e50;       /* Scuro, elegante */
   --color-secondary: #27ae60;     /* Verde naturale */
   --color-accent: #f39c12;        /* Accento dorato */
-  --color-background: #ecf0f1;    /* Sfondo base chiaro */
-  --color-text: #34495e;          /* Testo in grigio scuro */
+  --color-background: #ecf0f1;    /* Chiaro */
+  --color-text: #34495e;          /* Grigio scuro */
   --font-primary: 'Roboto', sans-serif;
   --font-secondary: 'Playfair Display', serif;
 }
@@ -25,13 +25,16 @@ body {
   background-color: var(--color-background);
   color: var(--color-text);
   line-height: 1.6;
-  /* Sfondo con immagine: utilizza l'immagine "ciao.jpg" presente in assets */
+  /* Usa l'immagine "ciao.jpg". Assicurati che il file si trovi in public/ oppure in public/assets/ e modificalo di conseguenza */
   background-image: url('/ciao.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   overflow-x: hidden;
   padding-top: 70px; /* per compensare il navbar fisso */
 }
+
+/* Per migliorare la leggibilità del testo su sfondi complessi, puoi applicare un overlay nelle sezioni dove serve */
+/* Ad esempio, per il carosello, il componente ha già un background semi-trasparente nel caption */
 
 /* --- Link --- */
 a {
@@ -58,13 +61,25 @@ a:hover {
   margin-right: 1rem;
 }
 
+/* Badge per il carrello (stile custom per l'icona con badge) */
+.cart-badge {
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  color: #fff;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  margin-left: 0.3rem;
+  vertical-align: top;
+}
+
 /* --- Carousel --- */
 .carousel-item img {
   height: 80vh;
   object-fit: cover;
 }
+
 .carousel-caption {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);  /* Overlay per aumentare la leggibilità */
   padding: 1rem 2rem;
   border-radius: 8px;
 }

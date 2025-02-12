@@ -25,7 +25,15 @@ const Home = () => {
             <Button variant="light" onClick={handleCTAClick}>Acquista Ora</Button>
           </Carousel.Caption>
         </Carousel.Item>
-        {/* Puoi aggiungere ulteriori Carousel.Item se desideri */}
+        {/* Se desideri aggiungere altre slide:
+        <Carousel.Item>
+          <img className="d-block w-100" src="/another-image.jpg" alt="Slide 2" />
+          <Carousel.Caption>
+            <h3>Titolo Slide 2</h3>
+            <p>Descrizione Slide 2</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        */}
       </Carousel>
       <Container className="mt-5">
         <h1>La nostra filosofia</h1>
