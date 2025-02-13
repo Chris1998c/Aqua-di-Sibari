@@ -8,14 +8,14 @@ const initialProducts = [
     id: 1,
     name: 'Hennè Emolliente',
     description: 'Hennè studiato per idratare e nutrire i capelli.',
-    price: 15.99,
+    price: 69.90,
     image: '/Confezione.png',
   },
   {
     id: 2,
     name: 'Hennè Rosso',
     description: 'Hennè rosso di alta qualità per risultati sorprendenti.',
-    price: 30.99,
+    price: 58.99,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWlG_C68bWoQAAdrzyFkvNZ9_KNSVCDLvECCTFlkHhjLKd1hFeNowIYEs_HHy1vlDHQ2U&usqp=CAU',
   }
 ];
