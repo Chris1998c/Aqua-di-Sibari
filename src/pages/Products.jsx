@@ -9,7 +9,7 @@ const initialProducts = [
     name: 'Hennè Emolliente',
     description: 'Hennè studiato per idratare e nutrire i capelli.',
     price: 15.99,
-    image: 'https://www.hair-gallery.it/image/cache/data/A_HG045986_2-500x500.jpg',
+    image: '/Confezione.png',
   },
   {
     id: 2,
