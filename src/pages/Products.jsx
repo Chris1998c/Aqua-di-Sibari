@@ -6,17 +6,31 @@ import { CartContext } from '../context/CartContext'; // Assicurati di avere un 
 const initialProducts = [
   {
     id: 1,
-    name: 'Hennè Emolliente',
-    description: 'Hennè studiato per idratare e nutrire i capelli.',
-    price: 69.90,
+    name: 'Erbe Riflessanti- Nutri',
+    description: 'Miscela studiata per idratare e nutrire i capelli.',
+    price: 70.00,
     image: '/Confezione.png',
   },
   {
     id: 2,
-    name: 'Hennè Rosso',
+    name: 'Erbe Riflessanti- Rosso',
     description: 'Hennè rosso di alta qualità per risultati sorprendenti.',
-    price: 58.99,
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWlG_C68bWoQAAdrzyFkvNZ9_KNSVCDLvECCTFlkHhjLKd1hFeNowIYEs_HHy1vlDHQ2U&usqp=CAU',
+    price: 55.00,
+    image: '/rosso.JPG',
+  },
+  {
+    id: 3,
+    name: 'Erbe Riflessanti- Mallo',
+    description: ' di alta qualità per risultati sorprendenti.',
+    price: 58.00,
+    image: '/mallo.JPG',
+  },
+  {
+    id: 4,
+    name: 'Erbe Riflessanti- Rosso Profondo',
+    description: 'Hennè rosso di alta qualità per risultati sorprendenti.',
+    price: 60.00,
+    image: '/rosso-profondo.JPG',
   }
 ];
 
