@@ -1,4 +1,3 @@
-// src/pages/Home.jsx
 import React from 'react';
 import { Carousel, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -13,24 +12,39 @@ const Home = () => {
   return (
     <div className="home-carousel-wrapper">
       <Carousel interval={3000}>
+        {/* Slide 1 */}
         <Carousel.Item>
-          <img
-            className="d-block w-100 carousel-image"
-            src="/Img1024.png"
-            alt="Slide 1"
-          />
+          <picture>
+            {/* Se in futuro avrai un'immagine specifica per mobile, sostituisci "/Img1.png" */}
+            <source media="(max-width: 768px)" srcSet="/Img1.png" />
+            <source media="(min-width: 769px)" srcSet="/Img1.png" />
+            <img
+              className="d-block w-100 carousel-image"
+              src="/Img1.png"
+              alt="Slide 1"
+            />
+          </picture>
           <Carousel.Caption>
             <h3>Benvenuto in AQUA di SIBARI</h3>
             <p>Scopri i nostri prodotti naturali</p>
-            <Button variant="light" onClick={handleCTAClick}>Acquista Ora</Button>
+            <Button variant="light" onClick={handleCTAClick}>
+              Acquista Ora
+            </Button>
           </Carousel.Caption>
         </Carousel.Item>
+
+        {/* Slide 2 */}
         <Carousel.Item>
-          <img
-            className="d-block w-100 carousel-image"
-            src="/img2.jpg"
-            alt="Slide 2"
-          />
+          <picture>
+            {/* Se in futuro avrai un'immagine specifica per mobile, sostituisci "/img2.jpg" */}
+            <source media="(max-width: 768px)" srcSet="/img2.jpg" />
+            <source media="(min-width: 769px)" srcSet="/img2.jpg" />
+            <img
+              className="d-block w-100 carousel-image"
+              src="/img2.jpg"
+              alt="Slide 2"
+            />
+          </picture>
           <Carousel.Caption>
             <h3>AQUA di SIBARI</h3>
             <p>Per un benessere naturale</p>
