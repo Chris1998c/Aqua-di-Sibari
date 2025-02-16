@@ -16,8 +16,8 @@ const Home = () => {
         {/* Slide 1 */}
         <Carousel.Item>
           <picture>
-            <source media="(max-width: 768px)" srcSet="/Img1.png" />
-            <source media="(min-width: 769px)" srcSet="/Img1.png" />
+            <source media="(max-width: 768px)" srcSet="/Img1-430.png" />
+            <source media="(min-width: 769px)" srcSet="/Img1-1440px.png" />
             <img
               className="d-block w-100 carousel-image"
               src="/Img1.png"
@@ -44,12 +44,12 @@ const Home = () => {
               alt="Slide 2"
             />
           </picture>
-        </Carousel.Item>
-      </Carousel>
-      <Carousel.Caption>
+          <Carousel.Caption>
             <h3>AQUA di SIBARI</h3>
             <p>Per un benessere naturale</p>
           </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
     </div>
   );
 };
