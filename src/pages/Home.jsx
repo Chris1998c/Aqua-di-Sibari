@@ -1,3 +1,4 @@
+// src/pages/Home.jsx
 import React from 'react';
 import { Carousel, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -15,7 +16,6 @@ const Home = () => {
         {/* Slide 1 */}
         <Carousel.Item>
           <picture>
-            {/* Se in futuro avrai un'immagine specifica per mobile, sostituisci "/Img1.png" */}
             <source media="(max-width: 768px)" srcSet="/Img1.png" />
             <source media="(min-width: 769px)" srcSet="/Img1.png" />
             <img
@@ -36,7 +36,6 @@ const Home = () => {
         {/* Slide 2 */}
         <Carousel.Item>
           <picture>
-            {/* Se in futuro avrai un'immagine specifica per mobile, sostituisci "/img2.jpg" */}
             <source media="(max-width: 768px)" srcSet="/img2.jpg" />
             <source media="(min-width: 769px)" srcSet="/img2.jpg" />
             <img
