@@ -44,12 +44,12 @@ const Home = () => {
               alt="Slide 2"
             />
           </picture>
-          <Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+      <Carousel.Caption>
             <h3>AQUA di SIBARI</h3>
             <p>Per un benessere naturale</p>
           </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
     </div>
   );
 };
