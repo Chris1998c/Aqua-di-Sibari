@@ -16,8 +16,10 @@ const Home = () => {
         {/* Slide 1 */}
         <Carousel.Item>
           <picture>
-            <source media="(max-width: 768px)" srcSet="/Img1-430.png" />
-            <source media="(min-width: 769px)" srcSet="/Img1-1440px.png" />
+            {/* Se desideri usare immagini diverse per mobile, sostituisci i file */}
+            <source media="(max-width: 768px)" srcSet="/Img1.png" />
+            <source media="(min-width: 769px)" srcSet="/Img1.png" />
+            {/* Fallback per browser che non supportano <picture> */}
             <img
               className="d-block w-100 carousel-image"
               src="/Img1.png"
