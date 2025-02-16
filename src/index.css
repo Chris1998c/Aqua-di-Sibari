@@ -85,18 +85,31 @@ a:hover {
 }
 
 /* -- Carousel -- */
-/* Il contenitore del carosello occupa tutta l'altezza disponibile, sottraendo l'altezza di header (60px) e footer (50px) */
+/* Contenitore del carosello:
+   - L'altezza è pari a 100vh meno l'altezza fissa di header e footer.
+   - Il background può essere impostato per mascherare eventuali spazi vuoti. */
 .home-carousel-wrapper {
   width: 100%;
   height: calc(100vh - 60px - 50px);
+  background-color: #000; /* Puoi cambiare il colore di sfondo se necessario */
+  display: flex;
+  align-items: center;  /* Centra verticalmente il contenuto */
+  justify-content: center;  /* Centra orizzontalmente */
 }
 
+/* Le immagini verranno scalate in modo da essere completamente visibili all'interno del contenitore,
+   senza ritagliarle. Verrà usato object-fit: contain. */
 .carousel-item img.carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
+/* Personalizzazione della didascalia del carosello */
 .carousel-caption {
   background: rgba(0, 0, 0, 0.55);
   padding: 0.8rem 1.5rem;
@@ -192,8 +205,10 @@ a:hover {
     font-size: 0.8rem;
     padding: 0.5rem 1rem;
   }
+  /* Se preferisci regolare diversamente le immagini per mobile, puoi farlo qui */
   .carousel-item img.carousel-image {
-    height: 60vh; /* Se preferisci un'altezza diversa per mobile, puoi modificarla qui */
+    max-height: 100%;
+    max-width: 100%;
   }
   .card-title {
     font-size: 1.1rem;
