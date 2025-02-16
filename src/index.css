@@ -91,7 +91,7 @@ a:hover {
 */
 .home-carousel-wrapper {
   width: 100%;
-  background-color: #000; /* Sfondo nero per eventuali spazi vuoti se l'immagine non riempie tutto */
+  background-color: #343A40; /* Sfondo nero per eventuali spazi vuoti se l'immagine non riempie tutto */
 }
 
 /*
@@ -101,7 +101,7 @@ a:hover {
 */
 .carousel-item img.carousel-image {
   width: 100%;
-  height: 60vw;
+  height: 80vh;
   object-fit: contain;
   display: block;
   margin: 0 auto;
@@ -211,7 +211,7 @@ a:hover {
   /* L'immagine continuerà a scalare in larghezza anche su mobile */
   .carousel-item img.carousel-image {
     width: 100%;
-    height: 60vw;
+    height: 80vh;
   }
 
   .card-title {
