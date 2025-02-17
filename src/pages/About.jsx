@@ -21,7 +21,7 @@ const About = () => {
         </Col>
         <Col xs={12} md={6} className="d-flex align-items-center justify-content-center">
           <Image
-            src="/about1.jpg"
+            src="/About1.webp"
             alt="Immagine Storia"
             fluid
             rounded
