@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 
-// Importa Font Awesome dal pacchetto npm (opzionale se già presente in index.html)
-import '@fortawesome/fontawesome-free/css/all.min.css';
+// React Toastify
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 import { CartProvider } from './context/CartContext';
 
@@ -14,6 +15,19 @@ root.render(
   <React.StrictMode>
     <CartProvider>
       <App />
+      {/* Attiviamo Toastify una sola volta per tutta l'app */}
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </CartProvider>
   </React.StrictMode>
 );

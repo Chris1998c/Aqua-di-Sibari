@@ -15,19 +15,23 @@ import Contacts from './pages/Contacts';
 import Success from './pages/Success';
 import Cancel from './pages/Cancel';
 
+// Pagina dettaglio prodotto
+import ProductDetail from './pages/ProductDetail';
+
 const App = () => {
   return (
     <Router>
       {/* Contenitore principale a colonna */}
       <div className="app-container">
-        {/* Navbar fissa in alto, rimane fuori dal flow */}
+        {/* Navbar fissa in alto */}
         <Header />
-        
-        {/* Contenuto centrale, flessibile (resta dietro la navbar se non compensiamo) */}
+
+        {/* Contenuto centrale */}
         <div className="content">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/about" element={<About />} />
             <Route path="/contacts" element={<Contacts />} />
@@ -36,7 +40,7 @@ const App = () => {
           </Routes>
         </div>
 
-        {/* Footer in fondo alla pagina, anche se il contenuto è poco */}
+        {/* Footer in fondo alla pagina */}
         <Footer />
       </div>
     </Router>
