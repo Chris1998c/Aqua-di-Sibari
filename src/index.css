@@ -1,13 +1,13 @@
 /* -- Variabili -- */
 :root {
-  --color-primary: #2c3e50;    /* Scuro, elegante (Navbar, Footer) */
-  --color-secondary: #27ae60;  /* Verde naturale */
-  --color-accent: #f39c12;     /* Accento dorato */
+  --color-primary: #2c3e50; /* Scuro, elegante (Navbar, Footer) */
+  --color-secondary: #27ae60; /* Verde naturale */
+  --color-accent: #f39c12; /* Accento dorato */
   /* Scegli uno sfondo coerente. Qui un grigio medio. */
-  --color-background: #B9BBBE; 
-  --color-text: #34495e;       
-  --font-primary: 'Roboto', sans-serif;
-  --font-secondary: 'Playfair Display', serif;
+  --color-background: #b9bbbe;
+  --color-text: #34495e;
+  --font-primary: "Roboto", sans-serif;
+  --font-secondary: "Playfair Display", serif;
 }
 
 /* -- Reset e layout globali -- */
@@ -19,7 +19,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   background-color: var(--color-background);
   color: var(--color-text);
@@ -88,7 +89,7 @@ a:hover {
 .home-carousel-wrapper {
   width: 100%;
   background-color: var(--color-background);
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 /* Ogni slide del carosello */
@@ -119,7 +120,7 @@ a:hover {
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
-  max-width: 600px;
+  max-width: 80vh;
   text-align: center;
 
   background: rgba(0, 0, 0, 0.45);
@@ -232,9 +233,8 @@ a:hover {
   .carousel-caption {
     position: static;
     transform: none;
-    margin: 0.5rem auto 0; 
-    width: 80%;      /* o 100% se vuoi full width */
-    max-width: 600px; 
+    margin: 0.5rem auto 0;
+    width: 100%; /* o 100% se vuoi full width */
     text-align: center;
   }
 

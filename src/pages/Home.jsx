@@ -47,8 +47,7 @@ const Home = () => {
             />
           </picture>
           <Carousel.Caption>
-            <h3>AQUA di SIBARI</h3>
-            <p>Per un benessere naturale</p>
+          <p>Scopri i nostri prodotti naturali</p>
             <Button variant="light" onClick={handleCTAClick}>
               Acquista Ora
             </Button>
