@@ -125,12 +125,12 @@ a:hover {
 .carousel-item img.carousel-image {
   width: 100%;
   height: 80vh;
-  object-fit: contain;  /* L'immagine intera, senza tagli */
+  object-fit: contain;
   display: block;
   margin: 0 auto;
 }
 
-/* Caption desktop: posizionata in basso, centrata */
+/* Caption desktop */
 .carousel-caption {
   position: absolute;
   bottom: 0;
@@ -194,85 +194,65 @@ a:hover {
 .btn-success:hover {
   background-color: var(--color-secondary);
 }
+
+/* ============================= */
+/*        SEZIONE CONTACTS       */
+/* ============================= */
+
+.contacts-section {
+  background-color: var(--color-background);
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.5rem;
+}
+
+/* Stile per il box contatti */
+.contact-card {
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  text-align: center;
+}
+
+.contact-card p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Stile per il bottone WhatsApp */
+.btn-success {
+  background-color: #25d366;
+  border: none;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+}
+.btn-success:hover {
+  background-color: #1ebe57;
+}
+
 /* ============================= */
 /*        SEZIONE ABOUT          */
 /* ============================= */
 
 .about-section {
-  background-color: var(--color-background); /* Stesso colore di sfondo */
+  background-color: var(--color-background);
   padding: 4rem 1rem;
-}
-
-/* Titoli e sottotitoli */
-.about-title {
-  font-size: 2.5rem;
-  font-family: var(--font-secondary);
-  color: var(--color-primary);
-  font-weight: bold;
-}
-
-.about-subtitle {
-  font-size: 1.2rem;
-  color: var(--color-secondary);
-}
-
-/* Layout delle sezioni */
-.about-row {
-  margin-bottom: 4rem;
-}
-
-.about-row h2 {
-  font-family: var(--font-secondary);
-  font-size: 1.8rem;
-  color: var(--color-primary);
-  margin-bottom: 1rem;
-}
-
-.about-row p {
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: justify;
 }
 
 /* Citazione evidenziata */
 .about-quote {
   font-size: 1.2rem;
   font-style: italic;
-  color: color: var(--color-secondary);
+  color: var(--color-secondary);
   border-left: 4px solid #1d6f42;
   padding-left: 1rem;
   margin-top: 1.5rem;
-}
-
-/* Immagini con effetto hover */
-.about-image {
-  max-height: 320px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.about-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Accordion */
-.about-accordion .accordion-item {
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.about-accordion .accordion-header {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: var(--color-primary);
-}
-
-.about-accordion .accordion-body {
-  font-size: 1rem;
-  line-height: 1.6;
-  background: var(--color-background);
 }
 
 /* ============================= */
@@ -284,32 +264,20 @@ a:hover {
     padding: 2rem 1rem;
   }
 
-  .about-title {
-    font-size: 2rem;
+  .carousel-caption {
+    width: 100%;
   }
 
-  .about-subtitle {
-    font-size: 1rem;
+  /* Sezione Contatti - Responsive */
+  .contacts-section {
+    padding: 3rem 1rem;
   }
 
-  .about-row h2 {
-    font-size: 1.5rem;
+  .contact-icon {
+    font-size: 1.3rem;
   }
 
-  .about-row p {
-    font-size: 0.9rem;
-  }
-
-  .about-image {
-    max-height: 250px;
-  }
-
-  .about-quote {
-    font-size: 1rem;
-    padding-left: 0.8rem;
-  }
-
-  .carousel-caption{
+  .btn-success {
     width: 100%;
   }
 }
