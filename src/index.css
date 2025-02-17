@@ -1,11 +1,10 @@
 /* -- Variabili -- */
 :root {
-  --color-primary: #2c3e50; /* Scuro, elegante (Navbar, Footer) */
-  --color-secondary: #27ae60; /* Verde naturale */
-  --color-accent: #f39c12; /* Accento dorato */
-  /* Scegli uno sfondo coerente. Qui un grigio medio. */
-  --color-background: #b9bbbe;
-  --color-text: #34495e;
+  --color-primary: #2c3e50;    /* Scuro, elegante (Navbar, Footer) */
+  --color-secondary: #27ae60;  /* Verde naturale */
+  --color-accent: #f39c12;     /* Accento dorato */
+  --color-background: #b9bbbe; /* Sfondo generale */
+  --color-text: #34495e;       /* Testo principale */
   --font-primary: "Roboto", sans-serif;
   --font-secondary: "Playfair Display", serif;
 }
@@ -19,8 +18,7 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   height: 100%;
   background-color: var(--color-background);
   color: var(--color-text);
@@ -31,18 +29,18 @@ body {
   height: 100%;
 }
 
+/* Struttura generale */
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-
 .content {
   flex: 1;
   padding-top: 60px; /* Spazio per la navbar fissa */
 }
 
-/* -- Link -- */
+/* Link generici */
 a {
   color: var(--color-primary);
   text-decoration: none;
@@ -54,22 +52,33 @@ a:hover {
 
 /* -- Navbar -- */
 .header-navbar {
+  background-color: var(--color-primary) !important; 
+  color: #fff; 
   padding: 0.3rem 1rem;
 }
 
+/* Brand della navbar */
+.header-navbar .navbar-brand {
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  color: #fff !important;
+  display: flex;
+  align-items: center;
+}
 .header-navbar .navbar-brand img {
   height: 50px;
   margin-right: 0.5rem;
 }
-.header-navbar .navbar-brand {
-  font-family: var(--font-secondary);
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-}
+
+/* Link della navbar */
 .header-navbar .nav-link {
   font-size: 0.9rem;
   margin-right: 0.5rem;
+  color: #fff !important;
+  transition: color 0.3s ease;
+}
+.header-navbar .nav-link:hover {
+  color: var(--color-accent) !important;
 }
 
 /* -- Badge Carrello -- */
@@ -84,23 +93,17 @@ a:hover {
 }
 
 /* -- Carousel -- */
-
-/* Contenitore del carosello */
 .home-carousel-wrapper {
   width: 100%;
   background-color: var(--color-background);
   overflow: hidden;
 }
 
-/* Ogni slide del carosello */
 .carousel-item {
-  position: relative; /* Per poter posizionare la caption in modo assoluto su desktop */
+  position: relative; /* Necessario per la caption in absolute su desktop */
 }
 
-/* L'immagine in desktop:
-   - Altezza ~80% viewport
-   - object-fit: contain => mostriamo l'intera immagine senza tagli
-*/
+/* L'immagine (desktop ~80% viewport) */
 .carousel-item img.carousel-image {
   width: 100%;
   height: 80vh;
@@ -109,26 +112,22 @@ a:hover {
   margin: 0 auto;
 }
 
-/* Caption del carosello in DESKTOP:
-   - Ancorata in basso
-   - Larghezza 80% e max 600px (meno appariscente)
-   - bottom: 0 => tocca il bordo inferiore dell'immagine
-*/
+/* Caption in DESKTOP */
 .carousel-caption {
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
-  max-width: 80vh;
+  max-width: 80vh; /* Impostato a 80vh per non essere troppo largo */
   text-align: center;
 
   background: rgba(0, 0, 0, 0.45);
   padding: 0.6rem 1rem;
   border-radius: 8px;
+  color: #fff;
 }
 
-/* Riduci dimensioni del testo nella caption */
 .carousel-caption h3 {
   font-size: 1.1rem;
   margin-bottom: 0.4rem;
@@ -218,24 +217,19 @@ a:hover {
     font-size: 0.85rem;
   }
 
-  /* Su mobile l'immagine un po' più bassa 
-     oppure auto se vuoi ridurre ancora lo spazio. 
-     Qui uso 60vh come esempio. */
+  /* Immagine un po' più bassa su mobile */
   .carousel-item img.carousel-image {
     height: 60vh;
   }
 
-  /* La caption in MOBILE:
-     - Rimuovo position absolute
-     - Diventa un blocco sotto l'immagine (flow normale)
-     - Larghezza 80% (o 100%) e centrata
-  */
+  /* La caption in MOBILE: blocco sotto l'immagine */
   .carousel-caption {
     position: static;
     transform: none;
     margin: 0.5rem auto 0;
-    width: 100%; /* o 100% se vuoi full width */
-    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    color: #fff;
   }
 
   .carousel-caption h3 {

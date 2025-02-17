@@ -8,12 +8,16 @@ const Header = () => {
   const { cartItems } = useContext(CartContext);
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" fixed="top" className="header-navbar">
+    <Navbar 
+      expand="lg" 
+      fixed="top" 
+      className="header-navbar"  // Rimosse le props bg="dark" e variant="dark"
+    >
       <Container>
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <img 
             src="/Aqua_di_Sibari__LogoHD.png" 
-            alt="Logo AQUA di SIBARI" 
+            alt="Logo AQUA di SIBARI"
             style={{ height: '50px', marginRight: '0.5rem' }}
           />
           <span style={{ fontSize: '1.1rem' }}>AQUA di SIBARI</span>
