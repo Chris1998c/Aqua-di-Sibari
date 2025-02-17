@@ -194,83 +194,118 @@ a:hover {
 .btn-success:hover {
   background-color: var(--color-secondary);
 }
-
 /* ============================= */
-/*         SEZIONE ABOUT         */
+/*        SEZIONE ABOUT          */
 /* ============================= */
 
-/* Stile dedicato per la sezione About */
 .about-section {
-  background-color: #fdfdfd; /* Fondo leggermente più chiaro */
-  padding: 3rem 1rem 3rem;   /* Spazio sopra e sotto */
+  background-color: var(--color-background); /* Stesso colore di sfondo */
+  padding: 4rem 1rem;
 }
 
-.about-section h1,
-.about-section h2 {
+/* Titoli e sottotitoli */
+.about-title {
+  font-size: 2.5rem;
   font-family: var(--font-secondary);
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.about-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+}
+
+/* Layout delle sezioni */
+.about-row {
+  margin-bottom: 4rem;
+}
+
+.about-row h2 {
+  font-family: var(--font-secondary);
+  font-size: 1.8rem;
   color: var(--color-primary);
   margin-bottom: 1rem;
 }
 
-.about-section p {
+.about-row p {
+  font-size: 1rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
   text-align: justify;
 }
 
-/* Immagini nella sezione About */
-.about-section img {
-  max-height: 300px;
+/* Citazione evidenziata */
+.about-quote {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--color-accent);
+  border-left: 4px solid var(--color-accent);
+  padding-left: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Immagini con effetto hover */
+.about-image {
+  max-height: 320px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.about-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Accordion */
+.about-accordion .accordion-item {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.about-accordion .accordion-header {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+.about-accordion .accordion-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  background: var(--color-background);
 }
 
 /* ============================= */
 /*         RESPONSIVE            */
 /* ============================= */
+
 @media (max-width: 768px) {
-  .header-navbar {
-    padding: 0.3rem 0.5rem;
-  }
-  .header-navbar .navbar-brand img {
-    height: 40px;
-  }
-  .header-navbar .navbar-brand {
-    font-size: 1rem;
-  }
-  .header-navbar .nav-link {
-    font-size: 0.85rem;
-  }
-  
-  /* Carousel: immagine meno alta in mobile (60vh) */
-  .carousel-item img.carousel-image {
-    height: 60vh;
-  }
-  /* Caption in mobile: si posiziona sotto l'immagine */
-  .carousel-caption {
-    position: static;
-    transform: none;
-    margin: 0.5rem auto 0;
-    width: 100%;
-    max-width: 100%;
-    color: #fff;
-  }
-  .carousel-caption h3 {
-    font-size: 1rem;
-  }
-  .carousel-caption p {
-    font-size: 0.8rem;
-  }
-  
-  /* Sezione About: riduci padding e margini per dispositivi piccoli */
   .about-section {
     padding: 2rem 1rem;
   }
-  .about-section h1,
-  .about-section h2 {
-    font-size: 1.2rem;
+
+  .about-title {
+    font-size: 2rem;
   }
-  .about-section p {
+
+  .about-subtitle {
+    font-size: 1rem;
+  }
+
+  .about-row h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-row p {
     font-size: 0.9rem;
+  }
+
+  .about-image {
+    max-height: 250px;
+  }
+
+  .about-quote {
+    font-size: 1rem;
+    padding-left: 0.8rem;
   }
 }
