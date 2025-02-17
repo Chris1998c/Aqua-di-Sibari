@@ -44,7 +44,7 @@ body {
 
 /* -- Link -- */
 a {
-  color: var(--color-secondary);
+  color: var(--color-primary);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -156,7 +156,7 @@ a:hover {
 
 /* -- Bottoni -- */
 .btn-primary {
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary);
   border: none;
   transition: background-color 0.3s ease;
 }
