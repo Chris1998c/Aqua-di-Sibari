@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Container, ListGroup, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
+import { stripePromise } from '../stripe';
 
 const Cart = () => {
   const { cartItems, removeFromCart } = useContext(CartContext);
@@ -14,9 +15,30 @@ const Cart = () => {
       .toFixed(2);
   };
 
-  const handleCheckout = () => {
-    // Gestione del checkout (Stripe o altro)
-    alert('Checkout da implementare');
+  const handleCheckout = async () => {
+    try {
+      // Prepara i dati del carrello da inviare al backend
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: cartItems }),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Errore nella creazione della sessione di checkout');
+      }
+      
+      const session = await response.json();
+      
+      // Carica Stripe e reindirizza al checkout
+      const stripe = await stripePromise;
+      const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
+      if (error) {
+        console.error('Stripe redirect error:', error.message);
+      }
+    } catch (err) {
+      console.error('Checkout error:', err);
+    }
   };
 
   return (
