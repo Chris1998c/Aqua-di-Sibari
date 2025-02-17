@@ -8,7 +8,14 @@ export const initialProducts = [
   {
     id: 1,
     name: 'Erbe Riflessanti- Nutri',
-    description: 'Miscela studiata per idratare e nutrire i capelli.',
+    shortDescription: 'Miscela studiata per idratare e nutrire i capelli.',
+    longDescription: `
+      Questa miscela contiene ingredienti naturali
+      come x, y, z che favoriscono l'idratazione e
+      la lucentezza dei capelli. Priva di sostanze
+      chimiche nocive, rispetta il cuoio capelluto
+      e dona morbidezza al tatto.
+    `,
     price: 70.0,
     image: '/Confezione.png',
   },

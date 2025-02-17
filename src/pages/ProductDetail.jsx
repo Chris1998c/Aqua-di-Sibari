@@ -3,13 +3,14 @@ import React, { useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { CartContext } from '../context/CartContext';
-import { initialProducts } from './Products'; // Import array prodotti
+import { initialProducts } from './Products';
 
 const ProductDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useContext(CartContext);
 
+  // Trova il prodotto in base all'ID nell'URL
   const product = initialProducts.find((p) => p.id === parseInt(id, 10));
 
   if (!product) {
@@ -40,7 +41,11 @@ const ProductDetail = () => {
         </div>
         <div className="col-md-6">
           <h1>{product.name}</h1>
-          <p>{product.description}</p>
+          {/* Breve descrizione (facoltativa) */}
+          <p><em>{product.shortDescription}</em></p>
+          {/* Descrizione estesa */}
+          <p>{product.longDescription}</p>
+
           <p>
             <strong>Prezzo:</strong> €{product.price}
           </p>
