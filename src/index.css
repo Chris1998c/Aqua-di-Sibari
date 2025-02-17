@@ -1,10 +1,10 @@
 /* -- Variabili -- */
 :root {
-  --color-primary: #2c3e50;    /* Navbar, Footer */
+  --color-primary: #2c3e50;    /* Scuro, elegante (Navbar, Footer) */
   --color-secondary: #27ae60;  /* Verde naturale */
   --color-accent: #f39c12;     /* Accento dorato */
-  --color-background: #ecf0f1; /* Sfondo generale chiaro */
-  --color-text: #34495e;       /* Testo principale */
+  --color-background: #B9BBBE; /* Chiaro */
+  --color-text: #34495e;       /* Grigio scuro */
   --font-primary: 'Roboto', sans-serif;
   --font-secondary: 'Playfair Display', serif;
 }
@@ -46,7 +46,6 @@ a {
   text-decoration: none;
   transition: color 0.3s ease;
 }
-
 a:hover {
   color: var(--color-accent);
 }
@@ -86,23 +85,20 @@ a:hover {
 
 /* -- Carousel -- */
 /*
-  .home-carousel-wrapper: contenitore del carosello.
-  Suggerimento: usa un colore coerente con la palette.
-  Di seguito useremo #ecf0f1 (lo stesso sfondo generale)
-  per non creare troppo contrasto con la navbar scura.
+  Il contenitore del carosello si adatta alla larghezza (100%) 
+  e usa un colore di sfondo chiaro, coerente con la palette.
 */
 .home-carousel-wrapper {
   width: 100%;
   background-color: var(--color-background);
-  /* Se desideri un colore diverso o neutro per quando l'immagine non riempie
-     l'area, puoi provare un grigio scuro #2c3e50, 
-     o un grigio chiaro #C6C5BE come usavi prima. */
+  position: relative; /* Necessario per il posizionamento assoluto della caption */
+  overflow: hidden;   /* Evita barre di scorrimento orizzontali indesiderate */
 }
 
 /*
-  L'immagine si adatta alla larghezza (width: 100%) 
-  e un'altezza fissa (80vh) per dare un layout "hero".
-  object-fit: contain evita distorsioni o tagli indesiderati.
+  L'immagine occupa ~80% dell'altezza del viewport (80vh),
+  così non deborda e permette di vedere il footer. 
+  object-fit: contain => mostriamo l'intera immagine senza tagli
 */
 .carousel-item img.carousel-image {
   width: 100%;
@@ -112,35 +108,27 @@ a:hover {
   margin: 0 auto;
 }
 
-/* DIDASCALIA (CAPTION) DEL CAROSELLO */
+/* Caption del carosello */
 .carousel-caption {
-  /* Sfondo semitrasparente */
+  position: absolute;
+  bottom: 2rem;       /* Avvicinamento al bordo inferiore: più piccolo => più vicino al footer */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+
   background: rgba(0, 0, 0, 0.55);
   padding: 0.8rem 1.5rem;
   border-radius: 8px;
-
-  /* Posizionamento in basso centrato sull'immagine */
-  position: absolute;
-  bottom: 5%;        /* puoi variare se vuoi più in su o più in giù */
-  left: 50%;
-  transform: translateX(-50%); /* Centrato orizzontalmente */
-  text-align: center;          /* Testo centrato */
 }
 
-/* Titolo (h3) e testo (p) più piccoli */
+/* Riduci dimensioni del testo nella caption */
 .carousel-caption h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
-
 .carousel-caption p {
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
-}
-
-/* Personalizza i bottoni nel carosello, se desideri */
-.carousel-caption button {
-  margin-top: 0.5rem;
 }
 
 /* -- Cards -- */
@@ -149,12 +137,10 @@ a:hover {
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
-
 .card-title {
   font-family: var(--font-secondary);
   font-size: 1.3rem;
@@ -219,29 +205,26 @@ a:hover {
   .header-navbar .navbar-brand img {
     height: 40px;
   }
-
   .header-navbar .navbar-brand {
     font-size: 1rem;
   }
-
   .header-navbar .nav-link {
     font-size: 0.85rem;
   }
 
-  /* Rivediamo la dimensione dell'immagine su mobile */
+  /* Su schermi piccoli, l'immagine un po' più bassa (70vh) per evitare scroll eccessivo */
   .carousel-item img.carousel-image {
-    height: 70vh; /* un po' meno alta sugli smartphone per evitare troppo scroll */
+    height: 70vh;
   }
 
   .carousel-caption {
-    font-size: 0.9rem; 
-    bottom: 8%; /* magari la alziamo un po' */
+    bottom: 1rem; 
+    padding: 0.6rem 1rem; 
+    font-size: 0.9rem;
   }
-
   .carousel-caption h3 {
     font-size: 1rem;
   }
-
   .carousel-caption p {
     font-size: 0.8rem;
   }
