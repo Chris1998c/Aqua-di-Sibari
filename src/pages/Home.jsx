@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     <div className="home-carousel-wrapper">
-      <Carousel interval={3000}>
+      <Carousel interval={3000} indicators={false} controls={true}>
         {/* Slide 1 */}
         <Carousel.Item>
           <picture>
