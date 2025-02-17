@@ -49,6 +49,9 @@ const Home = () => {
           <Carousel.Caption>
             <h3>AQUA di SIBARI</h3>
             <p>Per un benessere naturale</p>
+            <Button variant="light" onClick={handleCTAClick}>
+              Acquista Ora
+            </Button>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
