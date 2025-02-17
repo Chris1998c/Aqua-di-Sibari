@@ -42,7 +42,7 @@ const About = () => {
         </Col>
         <Col xs={12} md={6} className="order-md-1 d-flex align-items-center justify-content-center">
           <Image
-            src="/about2.jpg"
+            src="/About2.webp"
             alt="Ingredienti Naturali"
             fluid
             rounded
