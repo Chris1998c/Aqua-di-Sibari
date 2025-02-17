@@ -3,8 +3,9 @@
   --color-primary: #2c3e50;    /* Scuro, elegante (Navbar, Footer) */
   --color-secondary: #27ae60;  /* Verde naturale */
   --color-accent: #f39c12;     /* Accento dorato */
-  --color-background: #B9BBBE; /* Chiaro */
-  --color-text: #34495e;       /* Grigio scuro */
+  /* Scegli uno sfondo coerente. Qui un grigio medio. */
+  --color-background: #B9BBBE; 
+  --color-text: #34495e;       
   --font-primary: 'Roboto', sans-serif;
   --font-secondary: 'Playfair Display', serif;
 }
@@ -59,14 +60,12 @@ a:hover {
   height: 50px;
   margin-right: 0.5rem;
 }
-
 .header-navbar .navbar-brand {
   font-family: var(--font-secondary);
   font-size: 1.1rem;
   display: flex;
   align-items: center;
 }
-
 .header-navbar .nav-link {
   font-size: 0.9rem;
   margin-right: 0.5rem;
@@ -84,21 +83,22 @@ a:hover {
 }
 
 /* -- Carousel -- */
-/*
-  Il contenitore del carosello si adatta alla larghezza (100%) 
-  e usa un colore di sfondo chiaro, coerente con la palette.
-*/
+
+/* Contenitore del carosello */
 .home-carousel-wrapper {
   width: 100%;
   background-color: var(--color-background);
-  position: relative; /* Necessario per il posizionamento assoluto della caption */
-  overflow: hidden;   /* Evita barre di scorrimento orizzontali indesiderate */
+  overflow: hidden; 
 }
 
-/*
-  L'immagine occupa ~80% dell'altezza del viewport (80vh),
-  così non deborda e permette di vedere il footer. 
-  object-fit: contain => mostriamo l'intera immagine senza tagli
+/* Ogni slide del carosello */
+.carousel-item {
+  position: relative; /* Per poter posizionare la caption in modo assoluto su desktop */
+}
+
+/* L'immagine in desktop:
+   - Altezza ~80% viewport
+   - object-fit: contain => mostriamo l'intera immagine senza tagli
 */
 .carousel-item img.carousel-image {
   width: 100%;
@@ -108,27 +108,33 @@ a:hover {
   margin: 0 auto;
 }
 
-/* Caption del carosello */
+/* Caption del carosello in DESKTOP:
+   - Ancorata in basso
+   - Larghezza 80% e max 600px (meno appariscente)
+   - bottom: 0 => tocca il bordo inferiore dell'immagine
+*/
 .carousel-caption {
   position: absolute;
-  bottom: 2rem;       /* Avvicinamento al bordo inferiore: più piccolo => più vicino al footer */
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  width: 80%;
+  max-width: 600px;
   text-align: center;
 
-  background: rgba(0, 0, 0, 0.55);
-  padding: 0.8rem 1.5rem;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 0.6rem 1rem;
   border-radius: 8px;
 }
 
 /* Riduci dimensioni del testo nella caption */
 .carousel-caption h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
 }
 .carousel-caption p {
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
 }
 
 /* -- Cards -- */
@@ -201,7 +207,6 @@ a:hover {
   .header-navbar {
     padding: 0.3rem 0.5rem;
   }
-
   .header-navbar .navbar-brand img {
     height: 40px;
   }
@@ -212,24 +217,31 @@ a:hover {
     font-size: 0.85rem;
   }
 
-  /* Su schermi piccoli, l'immagine un po' più bassa (70vh) per evitare scroll eccessivo */
+  /* Su mobile l'immagine un po' più bassa 
+     oppure auto se vuoi ridurre ancora lo spazio. 
+     Qui uso 60vh come esempio. */
   .carousel-item img.carousel-image {
-    height: 70vh;
+    height: 60vh;
   }
 
+  /* La caption in MOBILE:
+     - Rimuovo position absolute
+     - Diventa un blocco sotto l'immagine (flow normale)
+     - Larghezza 80% (o 100%) e centrata
+  */
   .carousel-caption {
-    bottom: 1rem; 
-    padding: 0.6rem 1rem; 
-    font-size: 0.9rem;
+    position: static;
+    transform: none;
+    margin: 0.5rem auto 0; 
+    width: 80%;      /* o 100% se vuoi full width */
+    max-width: 600px; 
+    text-align: center;
   }
+
   .carousel-caption h3 {
     font-size: 1rem;
   }
   .carousel-caption p {
     font-size: 0.8rem;
-  }
-
-  .card-title {
-    font-size: 1.1rem;
   }
 }
