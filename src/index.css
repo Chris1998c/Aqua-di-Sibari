@@ -1,10 +1,10 @@
 /* -- Variabili -- */
 :root {
-  --color-primary: #2c3e50;    /* Scuro, elegante */
+  --color-primary: #2c3e50;    /* Navbar, Footer */
   --color-secondary: #27ae60;  /* Verde naturale */
   --color-accent: #f39c12;     /* Accento dorato */
-  --color-background: #ecf0f1; /* Chiaro */
-  --color-text: #34495e;       /* Grigio scuro */
+  --color-background: #ecf0f1; /* Sfondo generale chiaro */
+  --color-text: #34495e;       /* Testo principale */
   --font-primary: 'Roboto', sans-serif;
   --font-secondary: 'Playfair Display', serif;
 }
@@ -86,17 +86,22 @@ a:hover {
 
 /* -- Carousel -- */
 /*
-  Il contenitore del carosello si adatta fluidamente alla larghezza dello schermo;
-  l'altezza è determinata dal contenuto (l'immagine) per evitare forzature.
+  .home-carousel-wrapper: contenitore del carosello.
+  Suggerimento: usa un colore coerente con la palette.
+  Di seguito useremo #ecf0f1 (lo stesso sfondo generale)
+  per non creare troppo contrasto con la navbar scura.
 */
 .home-carousel-wrapper {
   width: 100%;
-  background-color: #C6C5BE; /* Sfondo nero per eventuali spazi vuoti se l'immagine non riempie tutto */
+  background-color: var(--color-background);
+  /* Se desideri un colore diverso o neutro per quando l'immagine non riempie
+     l'area, puoi provare un grigio scuro #2c3e50, 
+     o un grigio chiaro #C6C5BE come usavi prima. */
 }
 
 /*
-  L'immagine si adatta alla larghezza (width: 100%) mantenendo
-  le proporzioni originali grazie a height: auto.
+  L'immagine si adatta alla larghezza (width: 100%) 
+  e un'altezza fissa (80vh) per dare un layout "hero".
   object-fit: contain evita distorsioni o tagli indesiderati.
 */
 .carousel-item img.carousel-image {
@@ -107,11 +112,35 @@ a:hover {
   margin: 0 auto;
 }
 
-/* Personalizzazione della didascalia del carosello */
+/* DIDASCALIA (CAPTION) DEL CAROSELLO */
 .carousel-caption {
+  /* Sfondo semitrasparente */
   background: rgba(0, 0, 0, 0.55);
   padding: 0.8rem 1.5rem;
   border-radius: 8px;
+
+  /* Posizionamento in basso centrato sull'immagine */
+  position: absolute;
+  bottom: 5%;        /* puoi variare se vuoi più in su o più in giù */
+  left: 50%;
+  transform: translateX(-50%); /* Centrato orizzontalmente */
+  text-align: center;          /* Testo centrato */
+}
+
+/* Titolo (h3) e testo (p) più piccoli */
+.carousel-caption h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.carousel-caption p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Personalizza i bottoni nel carosello, se desideri */
+.carousel-caption button {
+  margin-top: 0.5rem;
 }
 
 /* -- Cards -- */
@@ -138,7 +167,6 @@ a:hover {
   border: none;
   transition: background-color 0.3s ease;
 }
-
 .btn-primary:hover {
   background-color: var(--color-accent);
 }
@@ -148,7 +176,6 @@ a:hover {
   border: none;
   transition: background-color 0.3s ease;
 }
-
 .btn-secondary:hover {
   background-color: var(--color-accent);
 }
@@ -158,7 +185,6 @@ a:hover {
   border: none;
   transition: background-color 0.3s ease;
 }
-
 .btn-success:hover {
   background-color: var(--color-secondary);
 }
@@ -180,7 +206,6 @@ a:hover {
   margin-right: 0.5rem;
   transition: color 0.3s ease;
 }
-
 .icon:hover {
   color: var(--color-accent);
 }
@@ -203,15 +228,22 @@ a:hover {
     font-size: 0.85rem;
   }
 
-  .carousel-caption {
-    font-size: 0.8rem;
-    padding: 0.5rem 1rem;
+  /* Rivediamo la dimensione dell'immagine su mobile */
+  .carousel-item img.carousel-image {
+    height: 70vh; /* un po' meno alta sugli smartphone per evitare troppo scroll */
   }
 
-  /* L'immagine continuerà a scalare in larghezza anche su mobile */
-  .carousel-item img.carousel-image {
-    width: 100%;
-    height: 86vh;
+  .carousel-caption {
+    font-size: 0.9rem; 
+    bottom: 8%; /* magari la alziamo un po' */
+  }
+
+  .carousel-caption h3 {
+    font-size: 1rem;
+  }
+
+  .carousel-caption p {
+    font-size: 0.8rem;
   }
 
   .card-title {
