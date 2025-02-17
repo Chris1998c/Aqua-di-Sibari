@@ -1,16 +1,20 @@
-/* -- Variabili -- */
+/* ============================= */
+/*        VARIABILI & RESET      */
+/* ============================= */
+
+/* Variabili */
 :root {
   --color-primary: #2c3e50;    /* Navbar & Footer scuri */
   --color-secondary: #27ae60;  /* Verde naturale */
   --color-accent: #f39c12;     /* Accento dorato */
   --color-background: #b9bbbe; /* Sfondo generale */
   --color-text: #34495e;       /* Testo principale */
+
   --font-primary: "Roboto", sans-serif;
   --font-secondary: "Playfair Display", serif;
-  
 }
 
-/* Reset & Layout globali */
+/* Reset & layout globali */
 *,
 *::before,
 *::after {
@@ -30,7 +34,7 @@ html, body {
   height: 100%;
 }
 
-/* Layout a colonna */
+/* Layout a colonna per l'app */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -38,7 +42,7 @@ html, body {
 }
 .content {
   flex: 1;
-  padding-top: 60px; /* spazio per la navbar fissa */
+  padding-top: 60px; /* Spazio per la navbar fissa */
 }
 
 /* Link generici */
@@ -50,6 +54,10 @@ a {
 a:hover {
   color: var(--color-accent);
 }
+
+/* ============================= */
+/*          NAVBAR & FOOTER      */
+/* ============================= */
 
 /* Navbar */
 .header-navbar {
@@ -89,6 +97,20 @@ a:hover {
   vertical-align: middle;
 }
 
+/* Footer */
+.footer {
+  background-color: var(--color-primary);
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+  margin-top: auto;
+}
+
+/* ============================= */
+/*         CAROUSEL & CARDS      */
+/* ============================= */
+
 /* Carousel */
 .home-carousel-wrapper {
   width: 100%;
@@ -96,17 +118,19 @@ a:hover {
   overflow: hidden;
 }
 .carousel-item {
-  position: relative; 
+  position: relative; /* Necessario per la caption in absolute su desktop */
 }
-/* Immagine (desktop: 80% viewport) */
+
+/* Immagine (desktop: 80vh) */
 .carousel-item img.carousel-image {
   width: 100%;
   height: 80vh;
-  object-fit: contain;
+  object-fit: contain;  /* L'immagine intera, senza tagli */
   display: block;
   margin: 0 auto;
 }
-/* Caption Desktop */
+
+/* Caption desktop: posizionata in basso, centrata */
 .carousel-caption {
   position: absolute;
   bottom: 0;
@@ -171,28 +195,39 @@ a:hover {
   background-color: var(--color-secondary);
 }
 
-/* Footer */
-.footer {
-  background-color: var(--color-primary);
-  color: #fff;
-  text-align: center;
-  font-size: 0.9rem;
-  padding: 1rem 0;
-  margin-top: auto;
+/* ============================= */
+/*         SEZIONE ABOUT         */
+/* ============================= */
+
+/* Stile dedicato per la sezione About */
+.about-section {
+  background-color: #fdfdfd; /* Fondo leggermente più chiaro */
+  padding: 3rem 1rem 3rem;   /* Spazio sopra e sotto */
 }
 
-/* Icone */
-.icon {
-  font-size: 1.3rem;
-  color: var(--color-secondary);
-  margin-right: 0.5rem;
-  transition: color 0.3s ease;
-}
-.icon:hover {
-  color: var(--color-accent);
+.about-section h1,
+.about-section h2 {
+  font-family: var(--font-secondary);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
 }
 
-/* Responsive */
+.about-section p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* Immagini nella sezione About */
+.about-section img {
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ============================= */
+/*         RESPONSIVE            */
+/* ============================= */
 @media (max-width: 768px) {
   .header-navbar {
     padding: 0.3rem 0.5rem;
@@ -206,12 +241,12 @@ a:hover {
   .header-navbar .nav-link {
     font-size: 0.85rem;
   }
-
-  /* Immagine un po' meno alta in mobile */
+  
+  /* Carousel: immagine meno alta in mobile (60vh) */
   .carousel-item img.carousel-image {
     height: 60vh;
   }
-  /* Caption in mobile: blocco sotto */
+  /* Caption in mobile: si posiziona sotto l'immagine */
   .carousel-caption {
     position: static;
     transform: none;
@@ -225,5 +260,17 @@ a:hover {
   }
   .carousel-caption p {
     font-size: 0.8rem;
+  }
+  
+  /* Sezione About: riduci padding e margini per dispositivi piccoli */
+  .about-section {
+    padding: 2rem 1rem;
+  }
+  .about-section h1,
+  .about-section h2 {
+    font-size: 1.2rem;
+  }
+  .about-section p {
+    font-size: 0.9rem;
   }
 }
