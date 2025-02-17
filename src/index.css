@@ -238,8 +238,8 @@ a:hover {
 .about-quote {
   font-size: 1.2rem;
   font-style: italic;
-  color: var(--color-accent);
-  border-left: 4px solid var(--color-accent);
+  color: color: var(--color-secondary);
+  border-left: 4px solid #1d6f42;
   padding-left: 1rem;
   margin-top: 1.5rem;
 }
