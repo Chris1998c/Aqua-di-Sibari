@@ -8,7 +8,7 @@ export const initialProducts = [
   {
     id: 1,
     name: 'Erbe Riflessanti- Nutri',
-    shortDescription: 'Miscela studiata per idratare e nutrire i capelli.',
+    description: 'Miscela studiata per idratare e nutrire i capelli.',
     longDescription: `
       Questa miscela contiene ingredienti naturali
       come x, y, z che favoriscono l'idratazione e

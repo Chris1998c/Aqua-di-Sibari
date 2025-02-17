@@ -42,7 +42,7 @@ const ProductDetail = () => {
         <div className="col-md-6">
           <h1>{product.name}</h1>
           {/* Breve descrizione (facoltativa) */}
-          <p><em>{product.shortDescription}</em></p>
+          <p><em>{product.description}</em></p>
           {/* Descrizione estesa */}
           <p>{product.longDescription}</p>
 
