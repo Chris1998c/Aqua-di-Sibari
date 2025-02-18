@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 // React Toastify
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { CartProvider } from './context/CartContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
