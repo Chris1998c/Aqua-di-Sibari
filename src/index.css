@@ -86,17 +86,6 @@ a:hover {
   color: var(--color-accent) !important;
 }
 
-/* Badge Carrello */
-.cart-badge {
-  background-color: var(--color-accent);
-  border-radius: 50%;
-  color: #fff;
-  padding: 2px 6px;
-  font-size: 0.8rem;
-  margin-left: 0.3rem;
-  vertical-align: middle;
-}
-
 /* Footer */
 .footer {
   background-color: var(--color-primary);
@@ -162,7 +151,6 @@ a:hover {
   padding: 4rem 1rem;
 }
 
-/* Stile delle card dei prodotti */
 .product-card {
   border: none;
   border-radius: 12px;
@@ -176,69 +164,42 @@ a:hover {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Wrapper immagine */
-.product-image-wrapper {
-  background: #f5f5f5;
-  padding: 1rem;
+/* ============================= */
+/*        SEZIONE CART           */
+/* ============================= */
+
+.cart-container {
+  background-color: var(--color-background);
+  padding: 4rem 1rem;
+}
+
+.cart-item {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 230px;
-}
-
-/* Immagine prodotto */
-.product-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-/* Titolo prodotto */
-.product-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: var(--color-primary);
-}
-
-/* Descrizione prodotto */
-.product-description {
-  font-size: 1rem;
-  color: var(--color-text);
-  line-height: 1.5;
-}
-
-/* Prezzo prodotto */
-.product-price {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: var(--color-secondary);
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
   margin-bottom: 1rem;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* Bottone aggiungi al carrello */
-.btn-add-to-cart {
-  background-color: var(--color-primary);
-  border: none;
-  font-size: 1rem;
-  padding: 0.7rem;
-  transition: background-color 0.3s ease;
+.cart-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-.btn-add-to-cart:hover {
+/* Bottone checkout */
+.checkout-btn {
   background-color: var(--color-accent);
-}
-
-/* Bottone dettagli */
-.btn-details {
-  background-color: var(--color-secondary);
+  font-size: 1.2rem;
+  padding: 0.8rem;
   border: none;
-  font-size: 1rem;
-  padding: 0.7rem;
   transition: background-color 0.3s ease;
 }
 
-.btn-details:hover {
-  background-color: #1d8348;
+.checkout-btn:hover {
+  background-color: var(--color-secondary);
 }
 
 /* ============================= */
@@ -266,11 +227,6 @@ a:hover {
   text-align: center;
 }
 
-.contact-card p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
 /* Bottone WhatsApp */
 .btn-success {
   background-color: #25d366;
@@ -291,30 +247,19 @@ a:hover {
     padding: 3rem 1rem;
   }
 
-  .product-card {
+  .cart-container {
+    padding: 3rem 1rem;
+  }
+
+  .cart-item {
+    flex-direction: column;
     text-align: center;
+    padding: 1.2rem;
   }
 
-  .product-image-wrapper {
-    height: 200px;
-  }
-
-  .product-title {
-    font-size: 1.1rem;
-  }
-
-  .product-description {
-    font-size: 0.9rem;
-  }
-
-  .product-price {
-    font-size: 1.2rem;
-  }
-
-  .btn-add-to-cart,
-  .btn-details {
-    font-size: 0.9rem;
-    padding: 0.6rem;
+  .checkout-btn {
+    font-size: 1rem;
+    padding: 0.8rem;
   }
 
   .carousel-caption {
