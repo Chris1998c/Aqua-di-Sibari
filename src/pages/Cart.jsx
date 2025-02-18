@@ -1,6 +1,6 @@
 // src/pages/Cart.jsx
 import React, { useContext } from 'react';
-import { Container, ListGroup, Button } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup, Button, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import { stripePromise } from '../stripe';
@@ -43,54 +43,60 @@ const Cart = () => {
 
   return (
     <Container className="mt-5 pt-5">
-      <h1>Carrello</h1>
+      <h1 className="text-center mb-4">Carrello</h1>
       {cartItems.length > 0 ? (
         <>
           <ListGroup variant="flush">
             {cartItems.map((item) => (
-              <ListGroup.Item
-                key={item.id}
-                className="d-flex justify-content-between align-items-center"
-              >
-                <div className="d-flex align-items-center">
-                  {/* Miniatura prodotto */}
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    style={{
-                      width: '50px',
-                      height: '50px',
-                      objectFit: 'cover',
-                      marginRight: '10px',
-                    }}
-                  />
-                  <div>
-                    <strong>{item.name}</strong>
-                    <br />
-                    <small>Quantità: {item.quantity}</small>
-                  </div>
-                </div>
-                <div>
-                  €{(item.price * item.quantity).toFixed(2)}
-                  <Button
-                    variant="outline-danger"
-                    size="sm"
-                    onClick={() => removeFromCart(item.id)}
-                    className="ms-2"
-                  >
-                    Rimuovi
-                  </Button>
-                </div>
+              <ListGroup.Item key={item.id} className="py-3">
+                <Row className="align-items-center">
+                  <Col xs={3} md={2}>
+                    {/* Miniatura prodotto */}
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fluid
+                      rounded
+                      style={{
+                        objectFit: 'cover',
+                        width: '100%',
+                        height: '60px',
+                      }}
+                    />
+                  </Col>
+                  <Col xs={6} md={7}>
+                    <h5>{item.name}</h5>
+                    <p className="mb-1">Quantità: {item.quantity}</p>
+                  </Col>
+                  <Col xs={3} md={3} className="text-end">
+                    <p className="mb-1">€{(item.price * item.quantity).toFixed(2)}</p>
+                    <Button
+                      variant="outline-danger"
+                      size="sm"
+                      onClick={() => removeFromCart(item.id)}
+                    >
+                      Rimuovi
+                    </Button>
+                  </Col>
+                </Row>
               </ListGroup.Item>
             ))}
           </ListGroup>
-          <h3 className="mt-3">Totale: €{calculateTotal()}</h3>
-          <Button variant="success" onClick={handleCheckout} className="mt-3">
-            Procedi al Pagamento
-          </Button>
+          <Row className="mt-4">
+            <Col xs={12} md={{ span: 4, offset: 8 }} className="text-end">
+              <h4>Totale: €{calculateTotal()}</h4>
+            </Col>
+          </Row>
+          <Row className="mt-3">
+            <Col className="text-center">
+              <Button variant="success" onClick={handleCheckout}>
+                Procedi al Pagamento
+              </Button>
+            </Col>
+          </Row>
         </>
       ) : (
-        <p>Il carrello è vuoto.</p>
+        <p className="text-center">Il carrello è vuoto.</p>
       )}
     </Container>
   );
