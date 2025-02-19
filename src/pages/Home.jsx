@@ -51,6 +51,28 @@ const Home = () => {
             </Button>
           </Carousel.Caption>
         </Carousel.Item>
+
+       {/* Slide 3 */}
+       <Carousel.Item>
+          <picture>
+            <source media="(max-width: 768px)" srcSet="/sibari.webp" />
+            <source media="(min-width: 769px)" srcSet="/sibari.webp" />
+            <img
+              className="d-block w-100 carousel-image"
+              src="/sibari.webp"
+              alt="Slide 2"
+            />
+          </picture>
+          <Carousel.Caption>
+            <p>I nostri prodotti.</p>
+            <Button variant="light" onClick={handleCTAClick}>
+              Acquista Ora
+            </Button>
+          </Carousel.Caption>
+        </Carousel.Item>
+
+
+
       </Carousel>
     </div>
   );
