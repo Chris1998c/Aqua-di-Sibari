@@ -25,7 +25,10 @@ const App = () => {
       <ToastContainer position="top-right" autoClose={3000} />
       <Router>
         <div className="app-container">
+          {/* Navbar */}
           <Header />
+
+          {/* Contenuto centrale */}
           <div className="content">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -38,9 +41,12 @@ const App = () => {
               <Route path="/cancel" element={<Cancel />} />
             </Routes>
           </div>
+
+          {/* Footer */}
           <Footer />
         </div>
       </Router>
+      <SpeedInsights/>
     </HelmetProvider>
   );
 };

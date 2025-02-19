@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Accordion } from 'react-bootstrap';
+import { Container, Row, Col, Image, Accordion } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
@@ -12,6 +12,7 @@ const About = () => {
         <meta name="keywords" content="Aqua di Sibari, cosmetici naturali, Magna Grecia, biodiversità, prodotti bio" />
       </Helmet>
 
+      {/* Sezione Header */}
       <Row className="text-center mb-5">
         <Col>
           <h1 className="about-title">AQUA DI SIBARI</h1>
@@ -21,43 +22,28 @@ const About = () => {
         </Col>
       </Row>
 
+      {/* Sezione Storia */}
       <Row className="about-row">
         <Col xs={12} md={6}>
           <h2>🌿 Le Nostre Origini</h2>
           <p>
             Aqua di Sibari nasce dal cuore della Magna Grecia, ispirata alla
-            raffinatezza e alla bellezza senza tempo di Sibari.
+            raffinatezza e alla bellezza senza tempo di Sibari. Il nostro
+            obiettivo è riportare in vita gli antichi segreti di cura e benessere
+            con ingredienti naturali e sostenibili.
           </p>
         </Col>
         <Col xs={12} md={6} className="d-flex align-items-center justify-content-center">
-          <LazyLoadImage src="/About1.webp" alt="Storia di Aqua di Sibari" effect="blur" className="about-image" />
+          <LazyLoadImage
+            src="/About1.webp"
+            alt="Storia di Aqua di Sibari"
+            effect="blur"
+            className="about-image"
+          />
         </Col>
       </Row>
 
-      <Row className="about-row">
-        <Col xs={12} md={6} className="order-md-2">
-          <h2>🌱 Le Terre di Calabria</h2>
-          <p>
-            La nostra terra offre una biodiversità unica: riso e orzo della
-            Piana di Sibari, lavanda del Pollino, liquirizia di Rossano e
-            agrumeti baciati dal sole. Tutto selezionato con cura per i nostri
-            prodotti.
-          </p>
-        </Col>
-        <Col xs={12} md={6} className="order-md-1 d-flex align-items-center justify-content-center">
-          <LazyLoadImage src="/About2.webp" alt="Terre di Calabria" effect="blur" className="about-image" />
-        </Col>
-      </Row>
-
-      <Row className="about-row">
-        <Col>
-          <h2>🧴 Filosofia e Prodotti</h2>
-          <p>
-            Ogni nostro prodotto è un’ode alla natura e alla tradizione.
-          </p>
-        </Col>
-      </Row>
-
+      {/* Accordion */}
       <Row className="about-accordion">
         <Col>
           <Accordion>
