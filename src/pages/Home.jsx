@@ -1,7 +1,7 @@
+// src/pages/Home.jsx
 import React from 'react';
 import { Carousel, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -18,11 +18,10 @@ const Home = () => {
           <picture>
             <source media="(max-width: 768px)" srcSet="/Img1.png" />
             <source media="(min-width: 769px)" srcSet="/Img1.png" />
-            <LazyLoadImage 
+            <img
               className="d-block w-100 carousel-image"
               src="/Img1.png"
               alt="Slide 1"
-              effect="blur"
             />
           </picture>
           <Carousel.Caption>
@@ -39,11 +38,10 @@ const Home = () => {
           <picture>
             <source media="(max-width: 768px)" srcSet="/img2.jpg" />
             <source media="(min-width: 769px)" srcSet="/img2.jpg" />
-            <LazyLoadImage 
+            <img
               className="d-block w-100 carousel-image"
               src="/img2.jpg"
               alt="Slide 2"
-              effect="blur"
             />
           </picture>
           <Carousel.Caption>
@@ -54,25 +52,26 @@ const Home = () => {
           </Carousel.Caption>
         </Carousel.Item>
 
-        {/* Slide 3 */}
-        <Carousel.Item>
+       {/* Slide 3 */}
+       <Carousel.Item>
           <picture>
             <source media="(max-width: 768px)" srcSet="/sibari.webp" />
             <source media="(min-width: 769px)" srcSet="/sibari.webp" />
-            <LazyLoadImage 
+            <img
               className="d-block w-100 carousel-image"
               src="/sibari.webp"
-              alt="Slide 3"
-              effect="blur"
+              alt="Slide 2"
             />
           </picture>
           <Carousel.Caption>
-            <p>I nostri prodotti migliori</p>
+            <p>I nostri prodotti.</p>
             <Button variant="light" onClick={handleCTAClick}>
-              Scopri di più
+              Acquista Ora
             </Button>
           </Carousel.Caption>
         </Carousel.Item>
+
+
 
       </Carousel>
     </div>

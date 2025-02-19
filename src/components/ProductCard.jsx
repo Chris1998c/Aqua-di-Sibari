@@ -1,13 +1,9 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
-const ProductCard = memo(({ product, addToCart }) => {
-  const handleAddToCart = () => {
-    addToCart(product);
-    toast.success("Prodotto aggiunto al carrello!", { autoClose: 2000 });
-  };
+const ProductCard = ({ product, addToCart }) => {
+  const navigate = useNavigate();
 
   return (
     <Card className="product-card h-100 shadow-sm">
@@ -21,12 +17,24 @@ const ProductCard = memo(({ product, addToCart }) => {
         </Card.Text>
         <h5 className="product-price">€{product.price.toFixed(2)}</h5>
 
-        <Button variant="primary" onClick={handleAddToCart} className="btn-add-to-cart mb-2">
+        <Button
+          variant="primary"
+          onClick={() => addToCart(product)}
+          className="btn-add-to-cart mb-2"
+        >
           Aggiungi al Carrello
+        </Button>
+
+        <Button
+          variant="secondary"
+          onClick={() => navigate(`/product/${product.id}`)}
+          className="btn-details"
+        >
+          Dettagli
         </Button>
       </Card.Body>
     </Card>
   );
-});
+};
 
 export default ProductCard;

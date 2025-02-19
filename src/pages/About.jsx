@@ -1,17 +1,10 @@
-import React from 'react';
-import { Container, Row, Col, Image, Accordion } from 'react-bootstrap';
-import { Helmet } from 'react-helmet-async';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+// src/pages/About.jsx
+import React from "react";
+import { Container, Row, Col, Image, Accordion } from "react-bootstrap";
 
 const About = () => {
   return (
     <Container className="about-section mt-5 pt-5">
-      <Helmet>
-        <title>Aqua di Sibari - Storia & Tradizione</title>
-        <meta name="description" content="Scopri la storia di Aqua di Sibari e la tradizione della Magna Grecia." />
-        <meta name="keywords" content="Aqua di Sibari, cosmetici naturali, Magna Grecia, biodiversità, prodotti bio" />
-      </Helmet>
-
       {/* Sezione Header */}
       <Row className="text-center mb-5">
         <Col>
@@ -34,16 +27,53 @@ const About = () => {
           </p>
         </Col>
         <Col xs={12} md={6} className="d-flex align-items-center justify-content-center">
-          <LazyLoadImage
+          <Image
             src="/About1.webp"
             alt="Storia di Aqua di Sibari"
-            effect="blur"
+            fluid
             className="about-image"
           />
         </Col>
       </Row>
 
-      {/* Accordion */}
+      {/* Sezione Natura */}
+      <Row className="about-row">
+        <Col xs={12} md={6} className="order-md-2">
+          <h2>🌱 Le Terre di Calabria</h2>
+          <p>
+            La nostra terra offre una biodiversità unica: riso e orzo della
+            Piana di Sibari, lavanda del Pollino, liquirizia di Rossano e
+            agrumeti baciati dal sole. Tutto selezionato con cura per i nostri
+            prodotti.
+          </p>
+        </Col>
+        <Col xs={12} md={6} className="order-md-1 d-flex align-items-center justify-content-center">
+          <Image
+            src="/About2.webp"
+            alt="Terre di Calabria"
+            fluid
+            className="about-image"
+          />
+        </Col>
+      </Row>
+
+      {/* Filosofia e Prodotti */}
+      <Row className="about-row">
+        <Col>
+          <h2>🧴 Filosofia e Prodotti</h2>
+          <p>
+            Ogni nostro prodotto è un’ode alla natura e alla tradizione. Creiamo
+            formule uniche con ingredienti puri, rispettando l’ambiente e la
+            salute della pelle.
+          </p>
+          <p className="about-quote">
+            “Aqua di Sibari è più di un marchio: è un ritorno alla natura, alla
+            tradizione e alla bellezza autentica.”
+          </p>
+        </Col>
+      </Row>
+
+      {/* Accordion per Approfondimenti */}
       <Row className="about-accordion">
         <Col>
           <Accordion>
