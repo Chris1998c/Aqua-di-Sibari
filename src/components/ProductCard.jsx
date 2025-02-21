@@ -15,7 +15,6 @@ const ProductCard = ({ product, addToCart }) => {
         <Card.Text className="product-description flex-grow-1">
           {product.description}
         </Card.Text>
-        {product.longDescription}
         <h5 className="product-price">€{product.price.toFixed(2)}</h5>
 
         <Button
