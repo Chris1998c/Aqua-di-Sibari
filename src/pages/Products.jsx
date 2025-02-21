@@ -9,11 +9,11 @@ export const initialProducts = [
   {
     id: 1,
     name: "Erbe Riflessanti - Nutri",
-    description: "Miscela naturale emolliente per capelli setosi e luminosi.",
+    description: "Trattamento naturale emolliente per capelli luminosi e forti.",
     longDescription: `
-      Questa miscela professionale è formulata con erbe selezionate dalla Calabria, tra cui liquirizia, camomilla, foglie di mandarino e avena. 
-      Ideale per nutrire e ammorbidire i capelli e il cuoio capelluto, può essere utilizzata come trattamento riequilibrante o all'interno delle miscele tintorie per mitigare i toni rossi caldi dell'henné Lawsonia. 
-      Priva di agenti chimici aggressivi, preserva l’integrità della fibra capillare, migliorando l'elasticità e la luminosità del capello.
+      La miscela Nutri è un trattamento professionale a base di erbe selezionate dalla Calabria, tra cui liquirizia, camomilla, foglie di mandarino e avena. 
+      Studiata per nutrire e ammorbidire la fibra capillare, è ideale per riequilibrare il cuoio capelluto e può essere utilizzata nelle miscele tintorie per mitigare i toni caldi dell'henné Lawsonia.
+      Ricca di principi attivi vegetali, rende i capelli più elastici, luminosi e setosi senza alterarne il colore naturale.
     `,
     price: 70.0,
     image: "/Confezione.png",
@@ -21,11 +21,12 @@ export const initialProducts = [
   {
     id: 2,
     name: "Erbe Riflessanti - Rosso Lawsonia",
-    description: "Henné Lawsonia inermis puro per una colorazione intensa e naturale.",
+    description: "Henné Lawsonia inermis puro per riflessi ramati intensi e naturali.",
     longDescription: `
-      Henné rosso Lawsonia inermis di altissima qualità, ideale per ottenere tonalità calde e ramate. 
-      Perfetto per colorazioni piene e luminose, questo henné 100% naturale si lega alla cheratina del capello, donando riflessi vibranti e duraturi.
-      Può essere miscelato con altre erbe per ottenere sfumature personalizzate e può essere combinato con la miscela emolliente per un effetto più equilibrato e morbido.
+      L’henné Rosso Lawsonia è una polvere naturale di altissima qualità ottenuta dalla macinazione delle foglie di Lawsonia inermis. 
+      Perfetto per ottenere riflessi rosso-aranciati su capelli bianchi e ramati caldi su basi castane. 
+      Si lega alla cheratina del capello per una colorazione intensa, duratura e rinforzante. 
+      Può essere miscelato con la miscela Nutri per ammorbidire il risultato o con il Rosso Profondo per intensificare la tonalità.
     `,
     price: 55.0,
     image: "/rosso.JPG",
@@ -33,11 +34,12 @@ export const initialProducts = [
   {
     id: 3,
     name: "Erbe Riflessanti - Mallo di Noce",
-    description: "Tonalizzante naturale astringente per riflessi castani.",
+    description: "Miscela astringente naturale per tonalità castane profonde.",
     longDescription: `
-      Miscela professionale a base di mallo di noce, ideale per ottenere riflessi castani naturali e profondi. 
-      Grazie alle sue proprietà astringenti, contribuisce a tonalizzare e scurire le sfumature troppo calde o aranciate. 
-      Perfetto per chi desidera un effetto più equilibrato e naturale nella colorazione vegetale.
+      Il Mallo di Noce è un tonalizzante naturale ideale per intensificare e scurire i riflessi castani. 
+      Grazie alle sue proprietà astringenti, aiuta a mitigare i toni aranciati e troppo caldi nelle miscele tintorie.
+      Sui capelli bianchi sviluppa un riflesso nocciola, che può essere regolato in intensità in base al pH della miscela.
+      Perfetto per chi desidera sfumature castane più naturali e profonde.
     `,
     price: 58.0,
     image: "/mallo.JPG",
@@ -45,11 +47,12 @@ export const initialProducts = [
   {
     id: 4,
     name: "Erbe Riflessanti - Rosso Profondo",
-    description: "Henné potenziato per un rosso ancora più intenso e profondo.",
+    description: "Henné potenziato per un rosso intenso e vibrante.",
     longDescription: `
-      Una miscela potenziata a base di Lawsonia inermis per un rosso ancora più intenso e freddo rispetto al classico henné. 
-      Perfetta per chi desidera una tonalità più profonda e vibrante, garantisce un'adesione ottimale ai capelli, massimizzando la durata del colore. 
-      Ideale per colorazioni decise senza virare troppo sui toni aranciati.
+      Il Rosso Profondo è una miscela rinforzata di Lawsonia inermis, studiata per ottenere un rosso più intenso e meno aranciato. 
+      Ideale per chi desidera una colorazione più vibrante, fredda e duratura, garantisce un’adesione ottimale ai capelli con un risultato deciso. 
+      Perfetto su basi chiare per un rosso acceso e brillante, mantiene un riflesso visibile anche su capelli castano scuro o bruno.
+      Può essere combinato con altre miscele per creare sfumature personalizzate e nuance uniche.
     `,
     price: 60.0,
     image: "/rosso-profondo.JPG",
@@ -65,11 +68,11 @@ const Products = () => {
         <title>AQUA di SIBARI - Prodotti</title>
         <meta
           name="description"
-          content="Scopri la gamma professionale di erbe tintorie e trattamenti naturali per la cura dei capelli. Prodotti formulati per garantire risultati eccellenti nei saloni di bellezza."
+          content="Scopri la gamma professionale di erbe riflessanti e trattamenti naturali per capelli sani e luminosi. Prodotti studiati per saloni e parrucchieri esperti."
         />
         <meta
           name="keywords"
-          content="henné professionale, erbe tintorie, colorazione naturale capelli, prodotti naturali capelli, riflessi naturali, henné rosso, tonalizzante capelli, trattamento capelli naturali"
+          content="henné professionale, erbe tintorie naturali, colorazione vegetale capelli, henné rosso, riflessi castani, tonalizzante capelli, trattamento capelli naturali"
         />
       </Helmet>
 
