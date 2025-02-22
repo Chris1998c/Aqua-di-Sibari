@@ -4,6 +4,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { CartContext } from "../context/CartContext";
 import { initialProducts } from "./Products";
+import { Helmet } from "react-helmet-async";
+
 
 const ProductDetail = () => {
   const { id } = useParams();
