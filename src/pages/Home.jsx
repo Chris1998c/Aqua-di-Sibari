@@ -14,15 +14,17 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>AQUA di SIBARI - Home</title>
+      <title>AQUA di SIBARI - Cosmetici Naturali</title>
         <meta
           name="description"
-          content="Scopri i prodotti naturali di AQUA di SIBARI. Bellezza, natura e tradizione in ogni prodotto."
+          content="Scopri i prodotti naturali di AQUA di SIBARI. Bellezza, natura e tradizione in ogni prodotto,Erbe riflessanti, henné puro e trattamenti per capelli 100% vegetali."
         />
         <meta
           name="keywords"
-          content="Aqua di Sibari, prodotti naturali, bellezza, tradizione, cosmetici naturali"
+          content="Aqua di Sibari, prodotti naturali, bellezza, tradizione, cosmetici naturali, hennè, erbe tintorie, emolliente, lawsonia inermis"
         />
+        <meta property="og:title" content="AQUA di SIBARI - Bellezza Naturale" />
+        <meta property="og:image" content="/Confezione.png" />
       </Helmet>
 
       <div className="home-carousel-wrapper">

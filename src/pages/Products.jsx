@@ -139,7 +139,7 @@ const Products = () => {
           content="Erbe tintorie per capelli sani e colorazioni naturali professionali."
         />
         <meta property="og:image" content="/Confezione.png" />
-        <meta property="og:url" content="https://aquadisibari.it/products" />
+        <meta property="og:url" content="https://aqua-di-sibari.vercel.app/products" />
       </Helmet>
 
       <Container className="products-container mt-5 pt-5">

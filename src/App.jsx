@@ -19,28 +19,26 @@ import ProductDetail from "./pages/ProductDetail";
 
 const App = () => {
   return (
-    <HelmetProvider>
-      <Router>
-        <div className="app-container">
-          <Header />
-
-          <div className="content">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/product/:id" element={<ProductDetail />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contacts" element={<Contacts />} />
-              <Route path="/success" element={<Success />} />
-              <Route path="/cancel" element={<Cancel />} />
-            </Routes>
-          </div>
-          <Footer />
+    <Router>
+      <div className="app-container">
+        <Header />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/cancel" element={<Cancel />} />
+          </Routes>
         </div>
-      </Router>
-    </HelmetProvider>
+        <Footer />
+      </div>
+    </Router>
   );
 };
+
 
 export default App;

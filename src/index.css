@@ -4,11 +4,11 @@
 
 /* Variabili */
 :root {
-  --color-primary: #2c3e50;    /* Navbar & Footer scuri */
-  --color-secondary: #27ae60;  /* Verde naturale */
-  --color-accent: #f39c12;     /* Accento dorato */
+  --color-primary: #2c3e50; /* Navbar & Footer scuri */
+  --color-secondary: #27ae60; /* Verde naturale */
+  --color-accent: #f39c12; /* Accento dorato */
   --color-background: #b9bbbe; /* Sfondo generale */
-  --color-text: #34495e;       /* Testo principale */
+  --color-text: #333; /* Testo principale */
 
   --font-primary: "Roboto", sans-serif;
   --font-secondary: "Playfair Display", serif;
@@ -23,7 +23,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   min-height: 100vh;
   background-color: var(--color-background);
   color: var(--color-text);
@@ -60,9 +61,14 @@ a:hover {
 /* ============================= */
 
 /* Navbar */
+
+.navbar {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .header-navbar {
-  background-color: var(--color-primary) !important; 
-  color: #fff; 
+  background-color: var(--color-primary) !important;
+  color: #fff;
   padding: 0.3rem 1rem;
 }
 .header-navbar .navbar-brand {
@@ -377,6 +383,10 @@ a:hover {
 
 /* Responsive adjustments for general layout and specific sections */
 @media (max-width: 768px) {
+  .navbar {
+    font-size: 0.9rem;
+  }
+
   .cart-container {
     padding: 3rem 1rem;
   }

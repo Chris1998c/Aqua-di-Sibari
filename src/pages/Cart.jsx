@@ -14,7 +14,7 @@ const Cart = () => {
       .reduce((acc, item) => acc + item.price * (item.quantity || 1), 0)
       .toFixed(2);
   };
-
+  
   const handleCheckout = async () => {
     try {
       const response = await fetch('/api/create-checkout-session', {
@@ -22,22 +22,22 @@ const Cart = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ items: cartItems }),
       });
-
-      if (!response.ok) {
-        throw new Error('Errore nella creazione della sessione di checkout');
-      }
-
+  
+      if (!response.ok) throw new Error('Errore nel checkout');
+  
       const session = await response.json();
       const stripe = await stripePromise;
       const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
-
+  
       if (error) {
-        console.error('Stripe redirect error:', error.message);
+        console.error('Errore Stripe:', error.message);
+        alert("Si è verificato un errore nel pagamento. Riprova.");
       }
     } catch (err) {
       console.error('Checkout error:', err);
     }
   };
+  
 
   return (
     <Container className="cart-container mt-5 pt-5">

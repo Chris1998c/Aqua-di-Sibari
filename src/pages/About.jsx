@@ -6,17 +6,14 @@ import { Container, Row, Col, Image, Accordion } from "react-bootstrap";
 const About = () => {
   return (
     <>
-      <Helmet>
-        <title>AQUA di SIBARI - Chi Siamo</title>
-        <meta
-          name="description"
-          content="Scopri la storia, la tradizione e la filosofia di AQUA di SIBARI, dove bellezza e natura si incontrano."
-        />
-        <meta
-          name="keywords"
-          content="Aqua di Sibari, chi siamo, bellezza, natura, tradizione"
-        />
-      </Helmet>
+<Helmet>
+  <title>AQUA di SIBARI - La Nostra Storia</title>
+  <meta name="description" content="Scopri la storia e la filosofia di AQUA di SIBARI, ispirata alla tradizione della Magna Grecia e alla biodiversità della Calabria." />
+  <meta property="og:title" content="AQUA di SIBARI - Tradizione e Natura" />
+  <meta property="og:image" content="/About1.webp" />
+  <meta property="og:url" content="https://aqua-di-sibari.vercel.app/about" />
+</Helmet>
+
 
       <Container className="about-section mt-5 pt-5">
         {/* Sezione Header */}
